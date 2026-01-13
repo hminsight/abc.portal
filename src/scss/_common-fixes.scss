@@ -1,0 +1,159 @@
+/***********************************************************************************************
+Fixes common out-of-the-box power pages style issues
+*/
+
+// Header / Navigation tidy up
+.navbar {
+  background-color: var(--nav-bg-color);
+}
+@include media-breakpoint-up(xl) {
+  .navbar {
+    background-color: var(--nav-bg-color);
+    .navbar-brand {
+      color: var(--nav-brand-bg-color);
+      a {
+        display: flex;
+        align-items: center;
+        h1 {
+          margin: 0;
+        }
+      }
+    }
+    .nav.navbar-nav {
+      .divider-vertical {
+        display: none !important;
+      }
+      .nav-item {
+        > a {
+          padding: 5px 15px;
+        }
+        a {
+          text-decoration: none !important;
+          background-color: var(--nav-link-bg-color);
+          font-size: var(--link-font-size);
+          &:hover {
+            background-color: var(--nav-link-bg-color-hover);
+            color: var(--nav-link-color-hover);
+          }
+        }
+      }
+    }
+    .dropdown-menu {
+      border: none;
+      border-radius: 0;
+      > li {
+        > a {
+          &.active,
+          &:hover,
+          &:focus {
+            // padding-top: 0.8rem !important;
+            // padding-bottom: 0.8rem !important;
+            border-top-color: transparent !important;
+            border-left-color: transparent !important;
+            border-right-color: transparent !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .navbar {
+    // background-color: $gray-200 !important;
+    // border-bottom: 1px solid $gray-800 !important;
+    // padding-bottom: 2rem;
+    .navbar-collapse {
+      padding: 1rem;
+    }
+
+    .navbar-brand {
+      color: inherit;
+      a {
+        display: flex;
+        align-items: center;
+        h1 {
+          margin: 0;
+        }
+      }
+      .siteTitle {
+        color: inherit;
+      }
+    }
+    .navbar-toggler {
+      background-color: transparent;
+    }
+
+    .nav.navbar-nav {
+      .nav-item {
+        > a {
+          background-color: transparent !important;
+          text-decoration: none !important;
+          // color: inherit !important;
+        }
+        .dropdown-divider {
+          display: none !important;
+        }
+        .dropdown-toggle {
+          display: flex;
+          padding-bottom: 14.5px;
+          &:after {
+            margin-left: auto;
+            align-self: center;
+          }
+        }
+        .dropdown-menu {
+          padding: 0 !important;
+          margin-top: 0 !important;
+          background-color: transparent !important;
+          border-color: transparent !important;
+
+          > li {
+            &:first-child > a,
+            &:first-child > a:focus {
+              border-top: 1px solid $gray-500 !important;
+            }
+            > a {
+              color: inherit !important;
+              border-bottom: 1px solid $gray-500 !important;
+              padding-top: 0.8rem !important;
+              padding-bottom: 0.8rem !important;
+              &.active,
+              &:hover,
+              &:focus {
+                padding-top: 0.8rem !important;
+                padding-bottom: 0.8rem !important;
+                border-top-color: transparent !important;
+                border-left-color: transparent !important;
+                border-right-color: transparent !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Common layout fixes /////////////////////////////////////////////////////////////////////
+
+// Sticky footer
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+#mainContent {
+  flex-grow: 1;
+  min-height: auto !important; // Fixes issue with the footer overlapping the content
+}
+
+// Content /////////////////////////////////////////////////////////////////////////////////////
+
+// ColumnBlockLayout spacing issue
+@include media-breakpoint-down(sm) {
+}

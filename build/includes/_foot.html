@@ -1,0 +1,45 @@
+<script src="https://content.powerapps.com/resource/powerappsportal/dist/bootstrap.BootstrapV5.bundle-be8391e97d.js"
+    type="text/javascript"></script>
+
+<script src="https://content.powerapps.com/resource/powerappsportal/dist/postpreform.BootstrapV5.bundle-11a5a91493.js"
+    type="text/javascript"></script>
+
+<script src="https://content.powerapps.com/resource/powerappsportal/dist/app.BootstrapV5.bundle-7aa0129ad7.js"
+    type="text/javascript"></script>
+
+<script
+    src="https://content.powerapps.com/resource/powerappsportal/dist/default-1033.moment_2_29_4.bundle-eda4e638fd.js"
+    type="text/javascript"></script>
+<script
+    src="https://content.powerapps.com/resource/powerappsportal/dist/default-1033.moment_2_29_4.bundle-eda4e638fd.js"
+    type="text/javascript"></script>
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.min.js"
+    integrity="sha512-5BqtYqlWfJemW5+v+TZUs22uigI8tXeVah5S/1Z6qBLVO7gakAOtkOzUtgq6dsIo5c0NJdmGPs0H9I+2OHUHVQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+<script type="text/javascript">
+    window.onload = function () {
+        if (window.navigator.appName == "Microsoft Internet Explorer" || window.navigator.userAgent.indexOf("Trident") > 0) {
+            var searchElement = document.getElementById("search");
+            if (searchElement != null) searchElement.setAttribute("href", "");
+        }
+    };
+    function setHeight() {
+        var windowHeight = window.innerHeight - 140;
+        var navbar = document.getElementById("navbar");
+        if (navbar) {
+            navbar.style.maxHeight = windowHeight + "px";
+        }
+    }
+    window.addEventListener('resize', function (event) {
+        setHeight();
+    });
+</script>
+
+<script src="js/main.js"></script>
+</body>
+
+</html>

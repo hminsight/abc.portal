@@ -1,0 +1,501 @@
+//=include includes/_head.html
+//=include includes/_header-user.html
+
+
+
+<main class="site-container">
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            if (window.navigator.appName == "Microsoft Internet Explorer" || window.navigator.userAgent.indexOf("Trident") > 0) {
+                var searchElement = document.getElementById("search");
+                if (searchElement != null) searchElement.setAttribute("href", "");
+            }
+        };
+        function setHeight() {
+            var windowHeight = window.innerHeight - 140;
+            var navbar = document.getElementById("navbar");
+            if (navbar) {
+                navbar.style.maxHeight = windowHeight + "px";
+            }
+        }
+        window.addEventListener('resize', function (event) {
+            setHeight();
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // document.getElementById("txtWorkOrderId").value = '52e6ac85-6142-ef11-a316-002248126705';          
+        // alert('52e6ac85-6142-ef11-a316-002248126705');
+    </script>
+
+
+    <div id="mainContent" class="wrapper-body step-template" role="main">
+
+        <div class="py-5 px-4 step-menu-container step-template">
+            <div class="step-menu-title"></div>
+        </div>
+        <div class="page-copy">
+
+            <div class="xrm-editable-html xrm-attribute"
+                data-cmstemplate-render-url="/_services/portal/72e9002a-2c42-4d70-b902-0951e0c750c3/adx_webpage/c0fdf266-edc1-b6bd-91b4-3229f1a8eab3/__templates/live-preview/L0Jvb2tpbmdzL01ha2UtUGF5bWVudC8%3d"
+                data-cmstemplate-url="/_services/portal/72e9002a-2c42-4d70-b902-0951e0c750c3/adx_webpage/c0fdf266-edc1-b6bd-91b4-3229f1a8eab3/__templates/all/L0Jvb2tpbmdzL01ha2UtUGF5bWVudC8%3d"
+                data-editable-title="Copy (Make Payment)"
+                data-editable-url="/_services/portal/72e9002a-2c42-4d70-b902-0951e0c750c3/adx_webpage/c0fdf266-edc1-b6bd-91b4-3229f1a8eab3/adx_copy"
+                data-encoded="false" data-filebrowser-dialog-url="~/xrm-adx/filebrowser.html"
+                data-filebrowser-url="/_services/portal/72e9002a-2c42-4d70-b902-0951e0c750c3/elFinder/connector?working=YWR4X3dlYnBhZ2U6ZmI2ODEzNzgtM2NiNi1hYjYwLTE3YWUtYzVhMmM3NTBlZDA5OkZhbHNl"
+                data-label="Copy (Make Payment)" data-liquid="true" data-xrm-base="/xrm-adx/">
+                <div class="xrm-attribute-value">
+                    <script src="https://paymentgateway.commbank.com.au/static/checkout/checkout.min.js"
+                        data-error="errorCallback" data-cancel="cancelCallback" data-complete="completeCallback"
+                        data-beforeredirect="Checkout.saveFormFields"
+                        data-afterredirect="Checkout.restoreFormFields"></script>
+                    <script type="text/javascript">
+
+                        let tesAlertMsg;
+
+                        function errorCallback(error) {
+                            console.log(JSON.stringify(error));
+                            tesAlertMsg.append('Something went wrong, please try refreshing the page, or check your connection');
+                            tesAlertMsg.show(tesAlertMsg.types.DANGER);
+                        }
+                        function cancelCallback() {
+                            let userConfirmation = confirm("Are you sure you want to cancel?");
+                            if (confirm(text) == true) {
+                                //text = "You pressed OK!";
+                                console.log("Payment cancelled");
+                                cancelCallback =
+                                    "https://tesssbld.powerappsportals.com/Bookings/Make-Payment/";
+                            } else {
+                                //text = "You canceled!";
+                                console.log("Payment NOT cancelled");
+                            }
+                        }
+
+
+                        function completeCallback(response, data) {
+                            console.log("response:", response);
+                            console.log("resultIndicator: ", response.resultIndicator);
+                            console.log("sessionVersion: ", response.sessionVersion);
+
+                            UpdatePaymentRecord();
+                        }
+
+                        function showPaymentPage(sessionid) {
+                            Checkout.configure({
+                                session: {
+                                    id: sessionid,
+                                },
+                            });
+                            Checkout.showPaymentPage();
+                        }
+
+                        function showEmbeddedPage(sessionid) {
+                            // Initialise the alert 
+                            tesAlertMsg = new portal_common.PortalAlert();
+                            Checkout.configure({
+                                session: {
+                                    id: sessionid,
+                                },
+                            });
+                            Checkout.showEmbeddedPage("#embed-target");
+                            document.getElementById("btnEmbedpayment").style.visibility = "hidden";
+                        }
+
+                        function UpdatePaymentRecord() {
+                            fetch(
+                                "https://prod-11.australiasoutheast.logic.azure.com:443/workflows/7fc39021160d4dcfbfc246287d8f8485/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=a5lN8KOffWWAGBgAoMmFmWNCwEbIVRVO_YdF0Gc5eOg",
+                                {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json", //,
+                                        //'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
+                                    },
+                                    body: JSON.stringify({
+                                        InvoiceNumber: document.getElementById("txt_tes_invoiceno").value,
+                                        workOrderID: document.getElementById("txt_tes_WorkOrderNo").value,
+                                        Amount: Number(document.getElementById("txt_tes_Totalprice").value),
+                                        Currency: "AUD",
+                                    }),
+                                }
+                            )
+                                .then((response) => {
+                                    console.log(response);
+                                    tesAlertMsg.append('Thank you, your payment has been successful. Please note it can take 30 minutes for the booking status to update to "Paid"');
+                                    tesAlertMsg.show(tesAlertMsg.types.SUCCESS);
+                                }
+                                )
+                                .then((data) => { console.log(data) })
+                                .catch((error) => {
+                                    console.error("Error:", error)
+                                    tesAlertMsg.append('Something went wrong, please try refreshing the page, or check your connection');
+                                    tesAlertMsg.show(tesAlertMsg.types.DANGER);
+                                });
+                        }
+
+
+                    </script>
+                    <!-- Payment alery messages -->
+
+                    <!-- End payment alert messages -->
+                    <div class="row sectionBlockLayout text-start"
+                        style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
+                        <div class="container">
+                            <div class="col-lg-12 columnBlockLayout"
+                                style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;">
+                                <div class="alert-container show" portal-alert="">
+                                    <div class="alert alert-success" role="alert">
+                                        <i aria-hidden="true" class="fa fa-circle-check" style=""></i>
+                                        <div class="alert-content">
+                                            <p>Thank you, your payment has been successful. Please note it can take 30
+                                                minutes for the booking status to update to "Paid"</p>
+                                        </div>
+                                        <button type="button" class="close" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <h1> Make Payment </h1>
+
+                                <table id="iu9x7i" data-gjs-type="table" data-highlightable="1" role="presentation"
+                                    class="section">
+                                    <colgroup id="ixk3y2" data-gjs-type="default">
+                                        <col id="ioog8b" data-gjs-type="default">
+                                        <col id="i4awa6" data-gjs-type="default">
+                                    </colgroup>
+                                    <tbody id="i2vx1x" data-gjs-type="tbody" data-highlightable="1">
+                                        <tr id="iuv4vk" data-gjs-type="row" data-highlightable="1">
+                                            <td data-highlightable="1" colspan="1" rowspan="1" data-format-type="None"
+                                                data-entity-form-field-pcf-enabled="false"
+                                                class="clearfix cell text form-control-cell"
+                                                style="position: relative;">
+                                                <div class="table-info required">
+                                                    <label for="txt_tes_invoiceno" class="field-label">Invoice
+                                                        Number</label>
+                                                </div>
+                                                <div class="control">
+                                                    <div style="position:relative">
+                                                        <input type="text" id="txt_tes_invoiceno"
+                                                            style="padding:16px; margin:10px 0px;"
+                                                            class="aspNetDisabled text form-control lookup form-control "
+                                                            readonly="" aria-readonly="true" disabled="">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-highlightable="1" colspan="1" rowspan="1" data-format-type="None"
+                                                data-entity-form-field-pcf-enabled="false"
+                                                style="padding:16px; margin:10px 0px;"
+                                                class="clearfix cell text form-control-cell">
+                                                <div class="table-info required">
+                                                    <label for="txt_tes_WorkOrderNo" class="field-label">Work Order
+                                                        Number</label>
+                                                </div>
+                                                <div class="control">
+                                                    <div style="position:relative">
+                                                        <input type="text" id="txt_tes_WorkOrderNo"
+                                                            style="padding:16px; margin:10px 0px;"
+                                                            class="aspNetDisabled text form-control lookup form-control "
+                                                            readonly="" aria-readonly="true" disabled="">
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+
+                                        <tr id="iuv4vk2" data-gjs-type="row" data-highlightable="1">
+                                            <td data-highlightable="1" colspan="1" rowspan="1" data-format-type="None"
+                                                data-entity-form-field-pcf-enabled="false"
+                                                class="clearfix cell text form-control-cell"
+                                                style="position: relative;">
+                                                <div class="table-info required">
+                                                    <label for="txt_tes_subtotalprice" class="field-label">Sub Total
+                                                        Price</label>
+                                                </div>
+                                                <div class="control">
+                                                    <div style="position:relative">
+                                                        <input type="text" id="txt_tes_subtotalprice"
+                                                            style="padding:16px; margin:10px 0px;"
+                                                            class="aspNetDisabled text form-control lookup form-control "
+                                                            readonly="" aria-readonly="true" disabled="">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-highlightable="1" colspan="1" rowspan="1" data-format-type="None"
+                                                data-entity-form-field-pcf-enabled="false"
+                                                style="padding:16px; margin:10px 0px;"
+                                                class="clearfix cell text form-control-cell">
+                                                <div class="table-info required">
+                                                    <label for="txt_tes_Gst" class="field-label">GST</label>
+                                                </div>
+                                                <div class="control">
+                                                    <div style="position:relative">
+                                                        <input type="text" id="txt_tes_Gst"
+                                                            style="padding:16px; margin:10px 0px;"
+                                                            class="aspNetDisabled text form-control lookup form-control "
+                                                            readonly="" aria-readonly="true" disabled="">
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr id="iuv4vk" data-gjs-type="row" data-highlightable="1">
+                                            <td data-highlightable="1" colspan="1" rowspan="1" data-format-type="None"
+                                                data-entity-form-field-pcf-enabled="false"
+                                                class="clearfix cell text form-control-cell"
+                                                style="position: relative;">
+                                                <div class="table-info required">
+                                                    <label for="txt_tes_Totalprice" class="field-label">Total
+                                                        Price</label>
+                                                </div>
+                                                <div class="control">
+                                                    <div style="position:relative">
+                                                        <input type="text" id="txt_tes_Totalprice"
+                                                            style="padding:16px; margin:10px 0px;"
+                                                            class="aspNetDisabled text form-control lookup form-control "
+                                                            readonly="" aria-readonly="true" disabled="">
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td data-highlightable="1" colspan="1" rowspan="1" data-format-type="None"
+                                                data-entity-form-field-pcf-enabled="false"
+                                                class="clearfix cell text form-control-cell"
+                                                style="position: relative;">
+
+                                            </td>
+
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+
+                                <label hidden="" for="txt_SESSIONID">SESSIONID</label><input hidden="" type="text"
+                                    id="txt_SESSIONID" name="txt_SESSIONID"><br><br>
+
+
+                                <div id="embed-target"
+                                    style="width: 100%; max-height: 500px; overflow: hidden; transition: max-height 0.5s ease-out 0s;">
+                                    <iframe id="hc-comms-layer-iframe" allow="payment"
+                                        title="Payment Page Embedded In Frame"
+                                        src="https://paymentgateway.commbank.com.au/static/checkout/landing/index.html"
+                                        style="z-index: 9999; display: block; background-color: transparent; border: 0px none transparent; overflow: hidden; visibility: visible; margin: 0px; padding: 0px; height: 500px; width: 100%; min-height: 668px;"
+                                        scrolling="no" class=""></iframe>
+                                </div>
+                                <div id="receiptContainer" style="width:100%"></div>
+
+                                <input type="button"
+                                    style="background-color: rgb(50, 49, 48); color: rgb(255, 255, 255); cursor: pointer; font-weight: bold; height: 40px; visibility: hidden;"
+                                    class="btn btn-primary" id="btnEmbedpayment" value="Pay Now"
+                                    onclick="showEmbeddedPage(document.getElementById('txt_SESSIONID').value);">
+                                <input type="button" class="btn btn-primary" hidden="" value="Pay with Payment Page"
+                                    onclick="showEmbeddedPage(document.getElementById('txt_SESSIONID').value);">
+                                <div class="row sectionBlockLayout text-start"
+                                    style="display: flex; flex-wrap: wrap; margin: 0px; min-height: auto; padding: 8px;">
+                                    <div class="container" style="padding: 0px; display: flex; flex-wrap: wrap;">
+                                        <div class="col-lg-12 columnBlockLayout"
+                                            style="flex-grow: 1; display: flex; flex-direction: column; min-width: 250px; word-break: break-word;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(document).ready(function () {
+            $('.wrapper-body').addClass('step-template');
+        });
+        //]]>
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        //Relete this once Function App is implemented
+        function Verify() {
+            fetch('https://prod-19.australiasoutheast.logic.azure.com:443/workflows/9cef09b1f80c45f6bb13fee5cab95a90/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=29ClWG9xVdMhYaoM4GMkmojzZvan-l28JpbV2mhkMG4', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "apiOperation": "INITIATE_CHECKOUT",
+                    "interaction": {
+                        "operation": "VERIFY",
+                        "merchant": {
+                            "name": "MAIN ROADS WESTERN AUSTRALIA"
+                        }
+                    },
+                    "order": {
+                        "currency": "AUD",
+                        "amount": document.getElementById('txt_tes_Totalprice').value,
+                        "id": document.getElementById('txt_tes_invoiceno').value,
+                        "description": document.getElementById('txt_tes_WorkOrderNo').value
+                    }
+                })
+            })
+                .then(body => { //response.json(); 
+                    console.log(body)
+                }
+                )
+                .then(response => { //response.json(); 
+                    console.log(response)
+                }
+                )
+                .then(data => {
+                    console.log(data)
+                    //document.getElementById('txt_tes_WorkOrderNo').value=data.session.id
+                }
+                )
+                .catch(error => console.error('Error:', error));
+
+        }
+
+
+        async function GetSessionID() {
+            const url = "https://prod-19.australiasoutheast.logic.azure.com:443/workflows/9cef09b1f80c45f6bb13fee5cab95a90/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=29ClWG9xVdMhYaoM4GMkmojzZvan-l28JpbV2mhkMG4";
+            const data = {
+                "apiOperation": "INITIATE_CHECKOUT",
+                "interaction": {
+                    "operation": "PURCHASE", //"VERIFY",
+                    "merchant": {
+                        "name": "MAIN ROADS WESTERN AUSTRALIA"//,
+                        //    ,
+                        //"url": "https://tesssbld.powerappsportals.com/"
+                        ,
+                        // "logo": "https://upload.wikimedia.org/wikipedia/commons/2/21/Verlagsgruppe_Random_House_Logo_2016.png"
+                        //"emailContact": ''
+                    },
+                    "displayControl": {
+                        "billingAddress": "HIDE",
+                        "customerEmail": "READ_ONLY"//,
+                        // "paymentMethodDisplay": {
+                        //         "visa": "show",
+                        //       "mastercard": "show",
+                        //       "amex": "show",
+                        //   "dinersclub": "HIDE"//,
+                        //       "discover": "show",
+                        //       "jcb": "show",
+                        //       "maestro": "show"
+                        //        }
+                    }
+                },
+                "order": {
+                    "currency": "AUD",
+                    "amount": document.getElementById('txt_tes_Totalprice').value,
+                    "id": document.getElementById('txt_tes_invoiceno').value,
+                    "description": document.getElementById('txt_tes_WorkOrderNo').value
+                },
+                "customer": {
+                    "email": "steven.green@insight.com",
+                    "firstName": "Steven",
+                    "lastName": "Green"
+                    //,
+                    //"mobilePhone": "+1 5557891230",
+                    // "phone": "+1 1234567890"
+                }
+                //,
+                //"displayControl": {
+                //"billingAddress": "HIDE",
+                //"customerEmail": "MANDATORY"
+                //}
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    const result = await response.text();
+                    console.log("Response:", result);
+                    let d = JSON.parse(result)
+                    //document.getElementById("response").innerText = result;
+                    document.getElementById('txt_SESSIONID').value = d.session.id;
+                    //Checkout.showEmbeddedPage('#receiptContainer');
+                } else {
+                    console.error("HTTP Error:", response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error("Fetch Error:", error);
+            }
+        }
+
+
+
+        function roundToTwo(num) {
+            return +(Math.round(num + "e+2") + "e-2");
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            // alert("Your page is loaded");
+            // document.getElementById("txtWorkOrderId").value = '52e6ac85-6142-ef11-a316-002248126705';
+            document.getElementById("txt_tes_subtotalprice").value = parseFloat(11700.0000000000).toFixed(2);
+            document.getElementById("txt_tes_invoiceno").value = 'INV0000212';
+
+            document.getElementById("txt_tes_WorkOrderNo").value = 'WO0050084';
+            document.getElementById("txt_tes_Gst").value = parseFloat(1170.0000000000).toFixed(2);
+            document.getElementById("txt_tes_Totalprice").value = parseFloat(12870.0000000000).toFixed(2);
+
+            GetSessionID();
+
+
+            //do work
+        });
+
+    </script>
+
+</main>
+
+//=include includes/_footer.html
+//=include includes/_foot.html

@@ -1,0 +1,188 @@
+// Custom CSS Variables
+// Extracted from existing website and Figma design
+:root {
+  // ============================================================================
+  // TYPOGRAPHY
+  // ============================================================================
+  --font-family-base: 'Open Sans', sans-serif;
+  --font-family-sans-serif: 'Open Sans', sans-serif;
+  --font-family-serif: 'Merriweather', serif;
+  --font-family-icons: 'Font Awesome 5 Pro', sans-serif;
+
+  // Font Sizes
+  --font-size-base: 1em;
+  --font-size-small: 0.857em;
+  --font-size-small-medium: 0.93em;
+  --font-size-medium: 1.071em;
+  --font-size-large: 17px;
+  --font-size-xlarge: 19px;
+  --font-size-xxlarge: 20px;
+  --font-size-xxxlarge: 24px;
+
+  // Font Weights
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  // Line Heights
+  --line-height-base: 1.6;
+  --line-height-normal: normal;
+
+  // ============================================================================
+  // COLOR PALETTE
+  // ============================================================================
+  
+  // Primary Brand Colors (Existing website + Figma)
+  --body: #1F1F1F;
+  --white: #FFFFFF;
+  --white-off: #fcfcfc;
+  --black: #000000;
+  
+  // Teal Variations
+  --teal-extra-dark: #002A36;
+  --teal-dark: #003644;
+  --teal: #157274;
+  --teal-50: #15727480;
+  --teal-10: #1572741A;
+  --teal-medium: #4E9596;
+  --teal-medium-dark: #07545C;
+  --teal-bright: #4EBD95;
+  --teal-light: #4EBD95;
+  --teal-light-1: #E6F0F0;
+  --teal-light-2: #EFF4F4;
+  --teal-light-3: #F6F9F9;
+  
+  // Red/Burgundy Variations
+  --red-dark: #9D1C47;
+  --burgundy: #9D1C47;
+  --red-mid: #F69B97;
+  --danger: #C93143;
+  --danger-tint: #F7EBEE;
+  
+  // Grey Variations
+  --dark-grey: #181818;
+  --text-grey: #68696b;
+  --mid-grey: #B3B0B0;
+  --secondary-mid-grey: #787878;
+  --light-grey: #E8EAEA;
+  --light-grey-2: #D9D9D9;
+  --light-grey-border: #d3d7d9;
+  --light-grey-border-alt: #ccc;
+  --light-grey-bg: #f9f9f9;
+  --card-bg: rgba(213, 222, 224, 0.2);
+  --grey-transparent-light: rgba(0, 0, 0, 0.024);
+  --grey-transparent-medium: rgba(0, 0, 0, 0.063);
+  --hitbox: #D9D9D900;
+  --form-field-border: #949494;
+  
+  // Status Colors
+  --yellow-light: #FFF3D1;
+  --info: #3497AA;
+  --info-tint: #E1F3F4;
+  --info-grey: #E6EDEF;
+  --warn: #F9A806;
+  --warn-tint: #FFF0D9;
+  --success: #387C60;
+  --success-tint: #E1EFE4;
+  --success-green: #73b355;
+  --error-red: #e32700;
+  --warning-orange: #e29700;
+  --unpublished-pink: #fff4f4;
+
+  // ============================================================================
+  // SPACING SCALE
+  // ============================================================================
+  --spacing-none: 0;
+  --spacing-micro: 1px;
+  --spacing-xs: 0.5em;
+  --spacing-sm: 1em;
+  --spacing-sm-fixed: 10px;
+  --spacing-md: 15px;
+  --spacing-md-large: 20px;
+  --spacing-lg: 30px;
+  --spacing-negative-sm: -5px;
+
+  // Padding
+  --padding-none: 0;
+  --padding-xs: 0.5em;
+  --padding-sm: 1em;
+  --padding-md: 15px;
+  --padding-lg: 20px;
+
+  // ============================================================================
+  // BORDERS & RADIUS
+  // ============================================================================
+  --border-radius-sm: 24.906px;
+  --border-radius-md: 25px;
+  --border-radius-lg: 30px;
+  --border-width: 1px;
+  --border-width-md: 2px;
+  --border-color: var(--light-grey-border);
+  --border-color-alt: var(--light-grey-border-alt);
+  --border-style: solid;
+
+  // ============================================================================
+  // TRANSITIONS
+  // ============================================================================
+  --transition-base: all 0.3s ease;
+
+  // ============================================================================
+  // BUTTONS
+  // ============================================================================
+  // Button Padding (Large)
+  --btn-padding-y-lg: 13px;
+  --btn-padding-x-lg: 40px;
+  --btn-gap-lg: 10px;
+  --btn-height-lg: 53px;
+  --btn-font-size-lg: var(--font-size-xxlarge);
+  --btn-border-radius-lg: var(--border-radius-lg);
+
+  // Button Padding (Small)
+  --btn-padding-y-sm: 10.792px;
+  --btn-padding-x-sm: 33.208px;
+  --btn-gap-sm: 8.302px;
+  --btn-height-sm: 44px;
+  --btn-font-size-sm: var(--font-size-xlarge);
+  --btn-border-radius-sm: var(--border-radius-sm);
+
+  // Button Colors
+  --btn-primary-bg: var(--teal);
+  --btn-primary-hover-bg: var(--teal-dark);
+  --btn-primary-text: var(--white);
+  --btn-disabled-bg: var(--secondary-mid-grey);
+  --btn-disabled-text: var(--white);
+  --btn-outline-bg: var(--white);
+  --btn-outline-border: var(--teal);
+  --btn-outline-text: var(--teal);
+  --btn-outline-hover-border: var(--teal-dark);
+  --btn-outline-hover-text: var(--teal-dark);
+
+  // Navigation variables
+  --nav-bg-color: var(--bs-gray-200);
+  --nav-brand-bg-color: var(--bs-black);
+  --nav-link-bg-color: transparent;
+  --nav-link-bg-color-hover: $white;
+  --nav-link-color: var(--bs-gray-900);
+  --nav-link-color-hover: var(--bs-black);
+  --nav-link-font-size: 1.2rem;
+  --nav-link-padding: 5px 15px;
+  --nav-link-text-decoration: none !important;
+  --nav-dropdown-border: 1px solid var(--bs-gray-300);
+  --nav-dropdown-border-radius: 0;
+  --nav-dropdown-link-color: var(--bs-gray-900);
+  --nav-dropdown-link-color-hover: var(--bs-black);
+  --nav-dropdown-link-padding: 0.8rem !important;
+  --nav-dropdown-link-bg-color: var(--bs-white);
+  --nav-dropdown-link-bg-color-hover: var(--bs-gray-200);
+  // --add-custom-variables-here: value
+
+  // Breakpoints
+  --bs-breakpoint-xs: 0;
+  --bs-breakpoint-sm: 576px;
+  --bs-breakpoint-md: 768px;
+  --bs-breakpoint-lg: 992px;
+  --bs-breakpoint-xl: 1200px;
+  --bs-breakpoint-xxl: 1400px;
+}

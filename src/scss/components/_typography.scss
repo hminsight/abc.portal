@@ -1,0 +1,462 @@
+// Typography Styles
+// Based on existing website structure and design system
+
+// ============================================================================
+// BASE TYPOGRAPHY
+// ============================================================================
+
+body {
+    margin: 0;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+    color: var(--body);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// ============================================================================
+// HEADINGS
+// ============================================================================
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    padding-top: var(--padding-xs);
+    color: var(--dark-grey);
+}
+
+h1, .h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+    
+    @media (max-width: 576px) {
+        font-size: 1.75rem;
+    }
+}
+
+h2, .h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md-large);
+    
+    a {
+        color: var(--dark-grey);
+        text-decoration: none;
+        
+        &:hover {
+            color: var(--teal);
+            text-decoration: underline;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        font-size: 1.75rem;
+    }
+    
+    @media (max-width: 576px) {
+        font-size: 1.5rem;
+    }
+}
+
+h3, .h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--teal);
+    
+    @media (max-width: 768px) {
+        font-size: 1.5rem;
+    }
+    
+    @media (max-width: 576px) {
+        font-size: 1.25rem;
+    }
+}
+
+h4, .h4 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--teal);
+}
+
+h5, .h5 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm-fixed);
+}
+
+h6, .h6 {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm-fixed);
+}
+
+// ============================================================================
+// HERO/BANNER TYPOGRAPHY
+// ============================================================================
+
+.home-hero-title {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+    
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+    
+    @media (max-width: 576px) {
+        font-size: 1.75rem;
+    }
+}
+
+.home-hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-base);
+    margin-bottom: var(--spacing-md-large);
+    color: var(--white);
+    
+    @media (max-width: 768px) {
+        font-size: 1.1rem;
+    }
+    
+    @media (max-width: 576px) {
+        font-size: 1rem;
+    }
+}
+
+// ============================================================================
+// BODY TEXT
+// ============================================================================
+
+p {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-base);
+}
+
+.node__content {
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-base);
+    margin-top: var(--spacing-sm-fixed);
+}
+
+// ============================================================================
+// LINKS
+// ============================================================================
+
+a {
+    color: var(--teal);
+    text-decoration: none;
+    transition: var(--transition-base);
+    
+    &:hover {
+        color: var(--teal-dark);
+        text-decoration: underline;
+    }
+    
+    &:focus {
+        outline: 2px solid var(--teal);
+        outline-offset: 2px;
+    }
+}
+
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+// ============================================================================
+// META TEXT & SMALL TEXT
+// ============================================================================
+
+.node__meta,
+small,
+.small {
+    font-size: var(--font-size-small);
+    color: var(--text-grey);
+    line-height: var(--line-height-base);
+}
+
+.node__links {
+    font-size: var(--font-size-small-medium);
+}
+
+// ============================================================================
+// TEXT UTILITIES
+// ============================================================================
+
+.text-center,
+.text-align-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.text-muted {
+    color: var(--text-grey) !important;
+}
+
+.text-teal {
+    color: var(--teal) !important;
+}
+
+.text-white {
+    color: var(--white) !important;
+}
+
+.text-bold,
+strong,
+b {
+    font-weight: var(--font-weight-bold);
+}
+
+.text-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.text-normal {
+    font-weight: var(--font-weight-regular);
+}
+
+// ============================================================================
+// LISTS
+// ============================================================================
+
+ol, ul {
+    padding-left: 2rem;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--line-height-base);
+    
+    li {
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+ol ol, ul ul, ol ul, ul ol {
+    margin-bottom: 0;
+}
+
+dl {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+
+dt {
+    font-weight: var(--font-weight-bold);
+}
+
+dd {
+    margin-bottom: 0.5rem;
+    margin-left: 0;
+}
+
+.header-quick-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--spacing-md);
+    
+    li {
+        margin: 0;
+    }
+}
+
+// ============================================================================
+// TEASER/CARD TEXT
+// ============================================================================
+
+.card-wrapper {
+    h3, h4 {
+        color: var(--teal);
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+.card-description {
+    color: inherit;
+    line-height: var(--line-height-base);
+}
+
+// ============================================================================
+// SPECIAL TEXT TREATMENTS
+// ============================================================================
+
+abbr[title] {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+    cursor: help;
+    text-decoration-skip-ink: none;
+}
+
+address {
+    margin-bottom: var(--spacing-sm);
+    font-style: normal;
+    line-height: inherit;
+}
+
+blockquote {
+    margin: 0 0 var(--spacing-sm);
+}
+
+mark, .mark {
+    padding: 0.1875em;
+    background-color: var(--warning-tint, #fff3cd);
+}
+
+sub, sup {
+    position: relative;
+    font-size: 0.75em;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+pre, code, kbd, samp {
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+}
+
+pre {
+    display: block;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    overflow: auto;
+    font-size: 0.875em;
+}
+
+pre code {
+    font-size: inherit;
+    color: inherit;
+    word-break: normal;
+}
+
+code {
+    font-size: 0.875em;
+    word-wrap: break-word;
+}
+
+a > code {
+    color: inherit;
+}
+
+kbd {
+    padding: 0.1875rem 0.375rem;
+    font-size: 0.875em;
+    color: var(--white);
+    background-color: var(--dark-grey);
+    border-radius: 0.25rem;
+}
+
+kbd kbd {
+    padding: 0;
+    font-size: 1em;
+}
+
+.visually-hidden,
+.visually-hidden-focusable {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.visually-hidden-focusable:active,
+.visually-hidden-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+.print-only-block {
+    display: none;
+}
+
+@media print {
+    .print-only-block {
+        display: block;
+    }
+}
+
+// ============================================================================
+// BASIC ELEMENTS
+// ============================================================================
+
+hr {
+    margin: var(--spacing-sm) 0;
+    color: inherit;
+    border: 0;
+    border-top: var(--border-width) solid;
+    opacity: 0.25;
+}
+
+figure {
+    margin: 0 0 var(--spacing-sm);
+}
+
+img, svg {
+    vertical-align: middle;
+}
+
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+}
+
+caption {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: var(--text-grey);
+    text-align: left;
+}
+
+th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+}
+
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+label {
+    display: inline-block;
+}

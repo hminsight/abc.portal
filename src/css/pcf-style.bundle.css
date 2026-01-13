@@ -1,0 +1,575 @@
+.msos-open
+  .msos-inner-container:not(.msos-fullscreen)
+  .msos-selection-container {
+  position: absolute !important;
+  z-index: 1000;
+  top: 28px !important;
+}
+
+html[dir="rtl"]
+  .msos-open
+  .msos-inner-container:not(.msos-fullscreen)
+  .msos-selection-container {
+  right: 0 !important;
+}
+
+html[dir="ltr"]
+  .msos-open
+  .msos-inner-container:not(.msos-fullscreen)
+  .msos-selection-container {
+  left: 0 !important;
+}
+
+.msos-glyph:after {
+  font-size: 9px !important;
+}
+
+.msos-label {
+  margin-bottom: 0;
+}
+
+.msos-caret-button:focus {
+  outline: 0;
+}
+
+.msos-selecteditems-container:focus {
+  outline: 0;
+}
+
+.msos-container:not(.msos-disabled) {
+  border: 1px solid #949494;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 /8%);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.msos-container:not(.msos-disabled).msos-active {
+  border: 1px solid #949494 !important;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 /8%);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.msos-container:not(.msos-disabled).msos-focused {
+  border-color: #69c !important;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+
+html[dir="rtl"] .msos-selected-display-item {
+  margin: 2.5px 0 2.5px 7px !important;
+}
+
+html[dir="ltr"] .msos-selected-display-item {
+  margin: 2.5px 7px 2.5px 0 !important;
+}
+
+html[dir="rtl"] .msos-inner-container {
+  padding: 3px 0 0 0 !important;
+}
+
+html[dir="ltr"] .msos-inner-container {
+  padding: 3px 0 0 0 !important;
+}
+
+.msos-none-selected .msos-inner-container:not(.msos-fullscreen) {
+  padding-top: 0 !important;
+}
+
+.msos-container {
+  min-height: 35px !important;
+  padding: 0 0 0 !important;
+}
+
+.msos-current-selection-expanded {
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  width: 100%;
+}
+
+[class*="checkMark-"],
+[class^="check-"],
+[class^="checkbox-"] {
+  border: none !important;
+  height: 42px !important;
+  width: 42px !important;
+  align-items: center;
+  display: flex !important;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.msos-current-selection-normal {
+  display: -ms-flexbox !important;
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+}
+
+.msos-disabled {
+  background: unset;
+  border: unset;
+  padding: unset;
+}
+
+.msos-container:not(.msos-disabled) .msos-viewmode-container {
+  display: none;
+}
+
+.msos-container:not(.msos-none-selected):not(.msos-disabled)
+  .msos-selecteditems-container {
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.msos-disabled .msos-inner-container,
+.msos-inner-container:not(.msos-fullscreen) {
+  display: none;
+}
+
+.msos-none-selected:not(.msos-disabled)
+  .msos-inner-container:not(.msos-fullscreen) {
+  opacity: 1;
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+
+.msos-selecteditems-toggle-container {
+  padding: 5px 0 0;
+}
+
+.msos-caret-button {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.msos-label .msos-label-text {
+  font-weight: 400 !important;
+}
+
+.msos-label .msos-checkbox + .msos-label-text:before {
+  font-family: "CRM MDL2" !important;
+  font-size: 12px !important;
+  display: inline-block !important;
+  content: " " !important;
+  padding: 0 15px 0 15px !important;
+}
+
+.msos-label .msos-checkbox:checked + .msos-label-text:before {
+  content: "\2713" !important;
+  padding: 0 10px 0 10px !important;
+}
+
+.msos-quick-delete:focus:after {
+  border: none !important;
+}
+
+.msos-selecteditems-toggle:focus {
+  outline: 0;
+  border: 1px solid;
+}
+
+.browserPreviewFrameBorder.tabletPortraitPreview {
+  width: auto !important;
+}
+
+.MscrmControls\.RichTextEditor\.RichTextEditorControl
+  .editorPreviewContainer:hover {
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+.MscrmControls\.RichTextEditor\.RichTextEditorControl .browserPreviewFrame {
+  margin: auto;
+  border: 1px solid #ccc !important;
+}
+
+.indeterminateProgressRing {
+  position: absolute !important;
+  top: 10px !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1 !important;
+}
+
+html[dir="rtl"] .indeterminateProgressRing {
+  right: 2% !important;
+}
+
+html[dir="ltr"] .indeterminateProgressRing {
+  left: 2% !important;
+}
+
+.indeterminateProgressRing .progressDot {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 15%;
+  opacity: 0;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+  -webkit-animation-name: moveIndetermineProgressRingDot;
+  animation-name: moveIndetermineProgressRingDot;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+html[dir="rtl"] .indeterminateProgressRing .progressDot {
+  right: 15%;
+}
+
+html[dir="ltr"] .indeterminateProgressRing .progressDot {
+  left: 15%;
+}
+
+.indeterminateProgressRing .progressDot:after {
+  content: "";
+  position: absolute;
+  width: 17.5%;
+  height: 17.5%;
+  background-color: #666;
+  border-radius: 100%;
+}
+
+.indeterminateProgressRing .progressDot:nth-child(2) {
+  -webkit-animation-delay: 240ms;
+  animation-delay: 240ms;
+}
+
+.indeterminateProgressRing .progressDot:nth-child(3) {
+  -webkit-animation-delay: 480ms;
+  animation-delay: 480ms;
+}
+
+.indeterminateProgressRing .progressDot:nth-child(4) {
+  -webkit-animation-delay: 720ms;
+  animation-delay: 720ms;
+}
+
+.indeterminateProgressRing .progressDot:nth-child(5) {
+  -webkit-animation-delay: 960ms;
+  animation-delay: 960ms;
+}
+
+.indeterminateProgressRing.hideProgressBar {
+  display: none;
+}
+
+.android4_4 .indeterminateProgressRing .progressDot {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+
+.indeterminateProgressRing .ieProgressDot.progressDot {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+  -webkit-animation-name: none;
+  animation-name: none;
+}
+
+.indeterminateProgressRingKeyframeSteps 0% {
+  opacity: 1;
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+.indeterminateProgressRingKeyframeSteps 7% {
+  opacity: 1;
+  -webkit-transform: rotate(345deg);
+  -moz-transform: rotate(345deg);
+  -o-transform: rotate(345deg);
+  -ms-transform: rotate(345deg);
+  transform: rotate(345deg);
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.indeterminateProgressRingKeyframeSteps 30% {
+  opacity: 1;
+  -webkit-transform: rotate(455deg);
+  -moz-transform: rotate(455deg);
+  -o-transform: rotate(455deg);
+  -ms-transform: rotate(455deg);
+  transform: rotate(455deg);
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+
+.indeterminateProgressRingKeyframeSteps 39% {
+  opacity: 1;
+  -webkit-transform: rotate(690deg);
+  -moz-transform: rotate(690deg);
+  -o-transform: rotate(690deg);
+  -ms-transform: rotate(690deg);
+  transform: rotate(690deg);
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.indeterminateProgressRingKeyframeSteps 70% {
+  opacity: 1;
+  -webkit-transform: rotate(815deg);
+  -moz-transform: rotate(815deg);
+  -o-transform: rotate(815deg);
+  -ms-transform: rotate(815deg);
+  transform: rotate(815deg);
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+.indeterminateProgressRingKeyframeSteps 75% {
+  opacity: 1;
+  -webkit-transform: rotate(945deg);
+  -moz-transform: rotate(945deg);
+  -o-transform: rotate(945deg);
+  -ms-transform: rotate(945deg);
+  transform: rotate(945deg);
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+.indeterminateProgressRingKeyframeSteps 76% {
+  opacity: 0;
+  -webkit-transform: rotate(945deg);
+  -moz-transform: rotate(945deg);
+  -o-transform: rotate(945deg);
+  -ms-transform: rotate(945deg);
+  transform: rotate(945deg);
+}
+
+.indeterminateProgressRingKeyframeSteps 100% {
+  opacity: 0;
+  -webkit-transform: rotate(945deg);
+  -moz-transform: rotate(945deg);
+  -o-transform: rotate(945deg);
+  -ms-transform: rotate(945deg);
+  transform: rotate(945deg);
+}
+
+div.BeBeControls div.conversation .message {
+  clear: both !important;
+  padding: 8px !important;
+  position: relative !important;
+  margin: 8px 0 !important;
+  max-width: 85% !important;
+  overflow-wrap: break-word !important;
+  z-index: -1 !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  display: block !important;
+}
+
+@-webkit-keyframes moveIndetermineProgressRingDot {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    opacity: 1;
+    -webkit-transform: rotate(345deg);
+    -moz-transform: rotate(345deg);
+    -o-transform: rotate(345deg);
+    -ms-transform: rotate(345deg);
+    transform: rotate(345deg);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  30% {
+    opacity: 1;
+    -webkit-transform: rotate(455deg);
+    -moz-transform: rotate(455deg);
+    -o-transform: rotate(455deg);
+    -ms-transform: rotate(455deg);
+    transform: rotate(455deg);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    opacity: 1;
+    -webkit-transform: rotate(690deg);
+    -moz-transform: rotate(690deg);
+    -o-transform: rotate(690deg);
+    -ms-transform: rotate(690deg);
+    transform: rotate(690deg);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  70% {
+    opacity: 1;
+    -webkit-transform: rotate(815deg);
+    -moz-transform: rotate(815deg);
+    -o-transform: rotate(815deg);
+    -ms-transform: rotate(815deg);
+    transform: rotate(815deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    opacity: 1;
+    -webkit-transform: rotate(945deg);
+    -moz-transform: rotate(945deg);
+    -o-transform: rotate(945deg);
+    -ms-transform: rotate(945deg);
+    transform: rotate(945deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    opacity: 0;
+    -webkit-transform: rotate(945deg);
+    -moz-transform: rotate(945deg);
+    -o-transform: rotate(945deg);
+    -ms-transform: rotate(945deg);
+    transform: rotate(945deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(945deg);
+    -moz-transform: rotate(945deg);
+    -o-transform: rotate(945deg);
+    -ms-transform: rotate(945deg);
+    transform: rotate(945deg);
+  }
+}
+
+@keyframes moveIndetermineProgressRingDot {
+  0% {
+    opacity: 1;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  7% {
+    opacity: 1;
+    -webkit-transform: rotate(345deg);
+    -moz-transform: rotate(345deg);
+    -o-transform: rotate(345deg);
+    -ms-transform: rotate(345deg);
+    transform: rotate(345deg);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  30% {
+    opacity: 1;
+    -webkit-transform: rotate(455deg);
+    -moz-transform: rotate(455deg);
+    -o-transform: rotate(455deg);
+    -ms-transform: rotate(455deg);
+    transform: rotate(455deg);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  39% {
+    opacity: 1;
+    -webkit-transform: rotate(690deg);
+    -moz-transform: rotate(690deg);
+    -o-transform: rotate(690deg);
+    -ms-transform: rotate(690deg);
+    transform: rotate(690deg);
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+  }
+
+  70% {
+    opacity: 1;
+    -webkit-transform: rotate(815deg);
+    -moz-transform: rotate(815deg);
+    -o-transform: rotate(815deg);
+    -ms-transform: rotate(815deg);
+    transform: rotate(815deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    opacity: 1;
+    -webkit-transform: rotate(945deg);
+    -moz-transform: rotate(945deg);
+    -o-transform: rotate(945deg);
+    -ms-transform: rotate(945deg);
+    transform: rotate(945deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+
+  76% {
+    opacity: 0;
+    -webkit-transform: rotate(945deg);
+    -moz-transform: rotate(945deg);
+    -o-transform: rotate(945deg);
+    -ms-transform: rotate(945deg);
+    transform: rotate(945deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: rotate(945deg);
+    -moz-transform: rotate(945deg);
+    -o-transform: rotate(945deg);
+    -ms-transform: rotate(945deg);
+    transform: rotate(945deg);
+  }
+}
+
+div.DiscussionBoard div.conversation .message {
+  display: block;
+}

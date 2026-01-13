@@ -1,0 +1,18 @@
+@use "sass:math";
+// Functions come first
+@import "../../node_modules/bootstrap/scss/functions";
+// BS 5.2.2 Bug fix
+// @function opaque($background, $foreground) {
+//   @return mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
+// }
+@import "./bs-theme-overrides";
+// @import "./root";
+
+// Main custom styles
+@import "./layouts/layouts";
+@import "./components/header";
+@import "./_common-fixes";
+@import "./root";
+
+@import "./components/fonts";
+@import "./components/typography";

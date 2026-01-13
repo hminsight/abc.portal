@@ -1,0 +1,56 @@
+// Variables come next
+@import "../../node_modules/bootstrap/scss/variables";
+
+// Custom Bootstrap 5 configuration overrides
+// See https://getbootstrap.com/docs/4.0/getting-started/theming/
+$custom-theme-colors: (
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800,
+  // "custom": $custom-color, // Add custom color to Bootstrap theme colors
+);
+
+$theme-colors: (
+  "primary": #ff0022,
+  "secondary": #999,
+  "success": #28a745,
+  "info": #17a2b8,
+  "warning": #ffc107,
+  "danger": #dc3545,
+  "light": #f8f9fa,
+  "dark": #343a40,
+  //"custom": #ff0000, // Add custom color to Bootstrap theme colors
+);
+
+// Bootstrap 5 overrides
+// $spacer: 1rem !important;
+// $enable-rounded: false !important;
+// $enable-shadows: false !important;
+// $enable-gradients: false !important;
+// $enable-transitions: false !important;
+// $enable-prefers-reduced-motion: false !important;
+// $enable-responsive-font-sizes: false !important;
+// $enable-responsive-font-sizes: false !important;
+// $enable-print-styles: false !important;
+// $border-radius: 0 !important;
+
+// Optional Sass map overrides here
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+// 1. Include any default map overrides here
+@import "../../node_modules/bootstrap/scss/maps";
+
+// 2. Include any default map overrides here
+
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";

@@ -1,0 +1,284 @@
+//=include includes/_head.html
+//=include includes/_header.html
+
+<main class="site-container mt-5">
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            if (window.navigator.appName == "Microsoft Internet Explorer" || window.navigator.userAgent.indexOf("Trident") > 0) {
+                var searchElement = document.getElementById("search");
+                if (searchElement != null) searchElement.setAttribute("href", "");
+            }
+        };
+        function setHeight() {
+            var windowHeight = window.innerHeight - 140;
+            var navbar = document.getElementById("navbar");
+            if (navbar) {
+                navbar.style.maxHeight = windowHeight + "px";
+            }
+        }
+        window.addEventListener('resize', function (event) {
+            setHeight();
+        });
+    </script>
+
+
+
+    <!-- add anti-forgery token-->
+    <div id="antiforgerytoken" data-url="/_layout/tokenhtml"></div>
+
+
+
+    <!-- Client Telemetry init if telemetry enabled-->
+    <script
+        onerror="javascript: var target = event.target; var script = document.createElement('script'); script.crossOrigin = target.crossOrigin; script.src = '/dist/client-telemetry.bundle-de96d9b841.js'; script.type = 'text/javascript'; target.insertAdjacentElement('afterend',script);"
+        src="https://content.powerapps.com/resource/powerappsportal/dist/client-telemetry.bundle-de96d9b841.js"
+        type="text/javascript"></script>
+
+
+
+    <!-- Client Telemetry Wrapper init -->
+    <script
+        onerror="javascript: var target = event.target; var script = document.createElement('script'); script.crossOrigin = target.crossOrigin; script.src = '/dist/client-telemetry-wrapper.bundle-633e70f51b.js'; script.type = 'text/javascript'; target.insertAdjacentElement('afterend',script);"
+        src="https://content.powerapps.com/resource/powerappsportal/dist/client-telemetry-wrapper.bundle-633e70f51b.js"
+        type="text/javascript"></script>
+
+    <script>
+        window.clientLogWrapper = new ClientLogWrapper();
+    </script>
+    <script
+        onerror="javascript: var target = event.target; var script = document.createElement('script'); script.crossOrigin = target.crossOrigin; script.src = '/dist/preform.BootstrapV5.moment_2_29_4.bundle-31c6b5b9ba.js'; script.type = 'text/javascript'; target.insertAdjacentElement('afterend',script);"
+        src="https://content.powerapps.com/resource/powerappsportal/dist/preform.BootstrapV5.moment_2_29_4.bundle-31c6b5b9ba.js"
+        type="text/javascript"></script>
+
+
+
+
+    <script>
+        window.modernPCFRendering = true;
+    </script>
+
+
+    <div id="content-container" class="container wrapper-body" role="main">
+        <div id="content">
+
+
+
+            <ul class="nav nav-tabs nav-account" role="tablist" onkeydown="navigation(event)">
+                <li role="none" class="nav-item"><a class="nav-link active" role="tab" aria-selected="true"
+                        href="javascript:void(0)" aria-label="Sign in" title="Sign in" tabindex="0"><span
+                            class="fa fa-sign-in" aria-hidden="true"></span> Sign in</a></li>
+
+                <li role="none" class="nav-item">
+                    <a class="nav-link " role="tab" aria-selected="false" href="/register.html" aria-label="Register"
+                        title="Register" tabindex="-1">Register</a>
+                </li>
+
+                <li role="none" class="nav-item"><a class="nav-link  " role="tab" aria-selected="false"
+                        href="/Register?returnUrl=%2FBookings%2FNew-Booking-Application%2F"
+                        aria-label="Redeem invitation" title="Redeem invitation" tabindex="-1">Redeem invitation</a>
+                </li>
+
+            </ul>
+
+            <script type="text/javascript">
+
+                const keyCodes = {
+                    END: 35,
+                    HOME: 36,
+                    LEFT: 37,
+                    RIGHT: 39,
+                    SPACE: 32
+                };
+
+                $(document).ready(function () {
+                    //make the tabindex='0' for active tab and -1 for others
+                    $(".nav.nav-tabs.nav-account > li > a").attr("tabindex", "-1");
+                    $(".nav.nav-tabs.nav-account > li > a").attr("aria-selected", "false");
+                    $(".nav.nav-tabs.nav-account > li > a.active").attr("tabindex", "0");
+                    $(".nav.nav-tabs.nav-account > li > a.active").trigger("focus");
+                    $(".nav.nav-tabs.nav-account > li > a.active").attr("aria-selected", "true");
+                });
+
+                function navigation(e) {
+                    //change tabindex dynamically for all the tabs on key press of left-right navigation keys or home/end keys
+                    var tabs = $(".nav.nav-tabs.nav-account > li > a");
+                    if (e.keyCode === keyCodes.END || e.keyCode === keyCodes.HOME || e.keyCode === keyCodes.LEFT || e.keyCode === keyCodes.RIGHT) {
+                        var currentTab = $(document.activeElement);
+                        for (index = 0; index < tabs.length; index++) {
+                            if ($(tabs[index]).text() === currentTab.text()) {
+                                e.keyCode === keyCodes.LEFT || e.keyCode === keyCodes.END ? (index == 0 || e.keyCode === keyCodes.END ? $(tabs[tabs.length - 1]).trigger("focus") :
+                                    $(tabs[index - 1]).trigger("focus")) : (index == (tabs.length - 1) || e.keyCode === keyCodes.HOME ? $(tabs[0]).focus() : $(tabs[index + 1]).trigger("focus"));
+                            }
+                        }
+                    }
+                    //open tab on click of SPACE key
+                    if (e.keyCode == keyCodes.SPACE) {
+                        e.preventDefault();
+                        $(document.activeElement)[0].click();
+                        tabs.attr("tabindex", "-1").attr("aria-selected", "false");
+                    }
+                }
+            </script>
+
+
+            <div class="page-content" id="mainContent">
+
+                <div class="xrm-editable-html xrm-attribute no-value page-copy">
+                    <div class="xrm-attribute-value"></div>
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <form action="/SignIn?ReturnUrl=%2FBookings%2FNew-Booking-Application%2F" method="post"
+                            data-bitwarden-watching="1"><input name="__RequestVerificationToken" type="hidden"
+                                value="vrwPwEimxdoiXEN5iWDGIEEfGq-rUJwKZINMyT-oPDvaogm95FdVzoWB7Hl5BLssnwcHBdFjpyupAPUlexWnRFDsaXZwdlVPAdbCp7URAWk1">
+                            <div class="portal-form">
+                                <h2 class="login-heading-section" id="local-login-heading">
+                                    <span class="xrm-editable-text xrm-attribute"><span
+                                            class="xrm-attribute-value-encoded xrm-attribute-value">Sign in with a local
+                                            account</span></span>
+                                </h2>
+                                <div class="validation-summary-valid listStyleTypeNone alert alert-block alert-danger"
+                                    data-valmsg-summary="true" id="loginValidationSummary" tabindex="0">
+                                    <ul role="presentation">
+                                        <li style="display:none"><a href="#undefined"></a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label required  fw-bold" for="Username"><span
+                                            class="xrm-editable-text xrm-attribute"><span
+                                                class="xrm-attribute-value-encoded xrm-attribute-value">Username</span></span></label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" id="Username" name="Username" type="text" value=""
+                                            aria-required="true">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-md-4 col-form-label required  fw-bold" for="PasswordValue"><span
+                                            class="xrm-editable-text xrm-attribute"><span
+                                                class="xrm-attribute-value-encoded xrm-attribute-value">Password</span></span></label>
+                                    <div class="col-md-8">
+                                        <input autocomplete="new-password" class="form-control" id="PasswordValue"
+                                            name="PasswordValue" type="password" aria-required="true">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="offset-md-4 col-md-8">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input data-val="true"
+                                                    data-val-required="The RememberMe field is required."
+                                                    id="RememberMe" name="RememberMe" type="checkbox"
+                                                    value="true"><input name="RememberMe" type="hidden" value="false">
+                                                <span class="xrm-editable-text xrm-attribute"><span
+                                                        class="xrm-attribute-value-encoded xrm-attribute-value">Remember
+                                                        me?</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="offset-md-4 col-md-8">
+                                        <button id="submit-signin-local" class="btn btn-primary" title="Sign in">Sign
+                                            in</button>
+
+                                        <a class="btn btn-default" role="link" href="/Account/Login/ForgotPassword"
+                                            title="Forgot your password?">Forgot your password?</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <script type="text/javascript">
+                            $(function () {
+                                $("#submit-signin-local").on("click", function () {
+                                    $.blockUI({ message: null, overlayCSS: { opacity: .3 } });
+                                });
+                            });
+                            $(document).ready(function () {
+                                if (portal) {
+                                    portal.UpdateValidationSummary("loginValidationSummary");
+                                }
+                            });
+                        </script>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <form action="/Account/Login/ExternalLogin?ReturnUrl=%2FBookings%2FNew-Booking-Application%2F"
+                            method="post"><input name="__RequestVerificationToken" type="hidden"
+                                value="vrwPwEimxdoiXEN5iWDGIEEfGq-rUJwKZINMyT-oPDvaogm95FdVzoWB7Hl5BLssnwcHBdFjpyupAPUlexWnRFDsaXZwdlVPAdbCp7URAWk1">
+                            <div class="">
+                                <h2 class="login-heading-section" id="external-login-heading">
+                                    <span class="xrm-editable-text xrm-attribute"><span
+                                            class="xrm-attribute-value-encoded xrm-attribute-value">Sign in with an
+                                            external account</span></span>
+                                </h2>
+
+
+                                <button name="provider" type="submit" class="btn btn-primary btn-line"
+                                    id="https://mainroadsdevb2c.b2clogin.com/tfp/4d0f447c-53d9-48b6-b36e-4007c95c917f/B2C_1A_TESSSPORTAL_SIGNIN/v2.0/"
+                                    title="Sign in with your Azure AD B2C account."
+                                    value="https://mainroadsdevb2c.b2clogin.com/tfp/4d0f447c-53d9-48b6-b36e-4007c95c917f/B2C_1A_TESSSPORTAL_SIGNIN/v2.0/">Azure
+                                    AD B2C
+                                </button>
+
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        document.querySelector('title').innerHTML = ($('.nav-tabs > li >a.active').text() + "");
+                        shell.refreshToken();
+                    });
+                </script>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div id="pp-native-controls-react-root">
+        <div class="body-106" style="">
+            <div dir="ltr"
+                class="fui-FluentProvider fui-FluentProvider1 ___jdtuxv0 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi">
+            </div>
+        </div>
+    </div>
+    <script>window._nativeControlConfig = { "publicPath": "https://content.powerapps.com/resource/powerappsportal/controls", "versions": { "pcf_loader": "0.0.18", "pcf_controls": "0.0.25", "mf_shared": "0.1.14", "host": "0.1.19", "data_grid": "0.2.18", "controls_fluent_v9": "0.0.21" } }</script>
+    <script defer="defer"
+        src="https://content.powerapps.com/resource/powerappsportal/controls/host/main.688f7e4d22.chunk.js"></script>
+
+
+
+
+</main>
+
+
+//=include includes/_footer.html
+//=include includes/_foot.html
