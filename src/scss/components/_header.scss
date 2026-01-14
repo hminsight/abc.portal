@@ -160,11 +160,12 @@
   .offcanvas-header {
     background-color: var(--teal-extra-dark);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.75rem 1.25rem 1.5rem;
+    margin-right: -0.25rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    min-height: 60px;
+    min-height: 128px;
     
     .btn-close-white {
       opacity: 1;

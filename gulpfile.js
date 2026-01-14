@@ -42,7 +42,7 @@ export function bootstrap() {
 }
 
 function css() {
-  return src(srcDir + "scss/**/styles.scss")
+  return src(srcDir + "scss/**/main.scss")
     .pipe(sourcemaps.init())
     .pipe(
       sass().on("error", (err) => {
@@ -52,7 +52,7 @@ function css() {
     .pipe(autoprefixer({ overrideBrowserslist: ["last 2 versions", ">5%"] }))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write("."))
-    .pipe(rename("styles.min.css"))
+    .pipe(rename("main.min.css"))
     .pipe(dest(`${buildDir}css`))
     .pipe(browserSync.stream());
 }

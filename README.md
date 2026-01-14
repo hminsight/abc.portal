@@ -55,7 +55,7 @@ If your developing a custom portal it's recommended to remove the theme.scss or 
 
 # Bootstrap Overwrite Choice
 
-You can choose to overwrite (copy -> paste) over the out-of-the-box bootstrap.min.css in the web-files folder or keep it as is and create styles to overwrite the bootstrap.min.css in styles.min.css
+You can choose to overwrite (copy -> paste) over the out-of-the-box bootstrap.min.css in the web-files folder or keep it as is and create styles to overwrite the bootstrap.min.css in main.min.css
 
 If you keep the out-of-the-box bootstrap.min.css in web-files then replace the `src/css/portal-bootstrap5.css` with the css from bootstrap.min.css in your power pages site and updated the `src/html/includes/head.html` to link to this file and comment out the bootstrap.css link.
 
