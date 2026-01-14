@@ -1,173 +1,66 @@
-<div class=" navbar-expand-xl navbar static-top" style="flex-wrap:wrap;" role="banner">
+<div class="banner-menu" role="banner" data-node-id="2:555">
   <div class="skip-to-content"><a href="#mainContent">Skip to main content</a></div>
-  <div class="container custom-container">
-
-
-    <!--
-        div class=" ">
-          <div class="xrm-editable-html&#32;xrm-attribute" data-languageContext="English"><div class="xrm-attribute-value"><a href="~/"><img src="/Logo-sm-64.png" alt="Contoso Limited2" style="width: auto; height: 32px; margin: 0 10px;">
-<h1 class="siteTitle custom-sitetitle" style="color:#fff!important">Company name</h1>
-</a></div></div>
-        </div
-      -->
-    <div class="navbar-brand navbar-header">
-      <div class="xrm-editable-html xrm-attribute" data-languagecontext="English">
-        <div class="xrm-attribute-value"><a href="~/"><img src="/img/Logo-sm-64.png" alt="Contoso Limited2"
-              style="width: auto; height: 32px; margin: 0 10px;">
-            <h1 class="siteTitle custom-sitetitle">Company name</h1>
-          </a></div>
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between px-4 px-lg-5 py-4">
+      <!-- Logo -->
+      <div class="banner-logo" data-node-id="2:551">
+        <a href="~/" class="text-decoration-none">
+          <div class="banner-logo__text">ABC</div>
+          <div class="banner-logo__text-bold">Online Portal</div>
+        </a>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="d-flex banner-actions align-items-center" data-node-id="2:530">
+        <a href="/apply" class="btn btn-teal rounded-pill" data-node-id="2:503">
+          Apply Now
+        </a>
+        <a href="/manage-case" class="btn btn-teal rounded-pill" data-node-id="2:509">
+          Manage your case
+        </a>
+        <button type="button" class="btn btn-menu rounded-pill" 
+                data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" 
+                aria-controls="navbarOffcanvas" data-node-id="2:512">
+          <span class="fa-solid fa-bars"></span>
+          <span>Menu</span>
+        </button>
       </div>
     </div>
-    <button type="button" class="navbar-toggler collapsed custom-navbar-toggler" title="Toggle navigation"
-      data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" onclick="setHeight();">
-      <span class="visually-hidden">Toggle navigation</span>
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  </div>
+</div>
 
-    <div id="navbar" class="navbar-collapse collapse" style="width: min-content;">
-
-
-      <nav aria-label="Main Navigation" class="ms-auto menu-bar " data-weblinks-maxdepth="2">
-        <ul class="nav navbar-nav weblinks">
-
-
-
-
-
-          <li class=" nav-item weblink ">
-            <a aria-label="Home" href="/" aria-roledescription="link" class="nav-link" title="Home">
-              Home
-            </a>
-
-          </li>
-
-
-          <li class="nav-item divider-vertical" aria-hidden="true"></li>
-
-
-
-
-          <li class=" nav-item weblink ">
-            <a aria-label="Dashboard" href="/Dashboard/" aria-roledescription="link" class="nav-link" title="Dashboard">
-              Dashboard
-            </a>
-
-          </li>
-
-
-          <li class="nav-item divider-vertical" aria-hidden="true"></li>
-
-
-
-
-          <li class=" nav-item weblink  dropdown">
-            <a aria-label="Examples" href="#" role="button" class="dropdown-toggle nav-link" data-bs-toggle="dropdown"
-              title="Examples" aria-expanded="false">
-              Examples
-            </a>
-
-            <ul class="dropdown-menu">
-
-              <li>
-                <a class="dropdown-item" aria-label="Examples" aria-roledescription="link" href="/Examples/"
-                  title="Examples">Examples</a>
-              </li>
-              <div class="dropdown-divider"></div>
-
-
-              <li>
-                <a class="dropdown-item" aria-label="Card Showcase" aria-roledescription="link"
-                  href="/Examples/Card-Showcase/" title="Card Showcase">
-                  Card Showcase
-                </a>
-              </li>
-
-              <li>
-                <a class="dropdown-item" aria-label="Accordion Showcase" aria-roledescription="link"
-                  href="/Examples/Accordion-Showcase/" title="Accordion Showcase">
-                  Accordion Showcase
-                </a>
-              </li>
-
-              <li>
-                <a class="dropdown-item" aria-label="Interactive Tabs" aria-roledescription="link"
-                  href="/Examples/Interactive-Tabs/" title="Interactive Tabs">
-                  Interactive Tabs
-                </a>
-              </li>
-
-              <li>
-                <a class="dropdown-item" aria-label="Alerts" aria-roledescription="link" href="/Examples/Alerts/"
-                  title="Alerts">
-                  Alerts
-                </a>
-              </li>
-
-              <li>
-                <a class="dropdown-item" aria-label="Link Showcase" aria-roledescription="link"
-                  href="/Examples/list-showcase/" title="Link Showcase">
-                  Link Showcase
-                </a>
-              </li>
-
-            </ul>
-
-          </li>
-
-
-
-          <li class=" nav-item divider-vertical" aria-hidden="true"></li>
-          <li class=" nav-item dropdown">
-            <a id="search" class=" nav-link navbar-icon" href="#" data-bs-toggle="dropdown" role="button"
-              aria-expanded="false" aria-label="Search" title="Search">
-              <span class="glyphicon fa-solid fa-magnifying-glass"></span>
-            </a>
-            <div class="dropdown-menu dropdown-search">
-
-
-
-
-
-
-              <form method="GET" action="/search/" role="search" class="form-search">
-                <div class="input-group" style="display:table;">
-
-
-
-                  <label for="q" class="visually-hidden">
-                    Search
-                  </label>
-                  <input type="text" class="form-control" id="q" name="q" placeholder="Search" value="" title="Search">
-                  <div class="input-group-btn align-top">
-                    <button type="submit" class="btn btn-primary" title="Search" aria-label="Search">
-                      <span class="fa fa-search" aria-hidden="true"></span>
-                    </button>
-                  </div>
-                </div>
-              </form>
-
-            </div>
-          </li>
-
-
-
-
-
-
-          <li class=" nav-item divider-vertical" aria-hidden="true"></li>
-
-          <li class="nav-item">
-            <a class="nav-link" aria-label="Sign in" aria-roledescription="link"
-              href="/SignIn?returnUrl=%2FForm%2FMulti-Step-Form%2F">
-              Sign in
-            </a>
-          </li>
-
-
-        </ul>
-
-      </nav>
-
-    </div>
+<!-- Off-canvas Menu (outside banner-menu for proper positioning) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel" data-bs-backdrop="true" data-bs-scroll="false">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav aria-label="Main Navigation">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="/" class="nav-link" title="Home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/Dashboard/" class="nav-link" title="Dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" title="Examples">Examples</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/Examples/">Examples</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/Examples/Card-Showcase/">Card Showcase</a></li>
+            <li><a class="dropdown-item" href="/Examples/Accordion-Showcase/">Accordion Showcase</a></li>
+            <li><a class="dropdown-item" href="/Examples/Interactive-Tabs/">Interactive Tabs</a></li>
+            <li><a class="dropdown-item" href="/Examples/Alerts/">Alerts</a></li>
+            <li><a class="dropdown-item" href="/Examples/list-showcase/">Link Showcase</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="/search/" class="nav-link" title="Search">
+            <span class="fa-solid fa-magnifying-glass me-2"></span>Search
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>

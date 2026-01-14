@@ -1,5 +1,375 @@
+// ============================================================================
+// BANNER MENU COMPONENT
+// Based on Figma design node-id="2:555"
+// ============================================================================
+
+.banner-menu {
+  background-color: var(--banner-bg);
+  width: 100%;
+
+  // Logo styling
+  .banner-logo {
+    font-family: var(--font-family-base);
+    font-size: var(--logo-font-size);
+    line-height: var(--logo-line-height);
+    color: var(--white);
+
+    a {
+      color: var(--white);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
+
+    &__text {
+      font-weight: var(--font-weight-regular);
+    }
+
+    &__text-bold {
+      font-weight: var(--font-weight-extrabold);
+    }
+  }
+
+  // Action buttons wrapper
+  .banner-actions {
+    gap: 28px;
+
+    @include media-breakpoint-down(lg) {
+      gap: 1rem;
+    }
+
+    @include media-breakpoint-down(md) {
+      gap: 0.5rem;
+    }
+  }
+}
+
+// ============================================================================
+// BUTTON VARIANTS
+// ============================================================================
+
+// Teal button variant
+.btn-teal {
+  background-color: var(--teal);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--btn-font-size-lg);
+  padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+  border: none;
+  border-radius: var(--btn-border-radius-lg);
+  transition: var(--transition-base);
+
+  &:hover,
+  &:focus {
+    background-color: var(--teal-medium-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background-color: var(--teal-medium-dark);
+    color: var(--white);
+    transform: translateY(0);
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+    font-size: var(--font-size-medium);
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 0.375rem 1rem;
+    font-size: var(--font-size-small-medium);
+  }
+}
+
+// Menu button variant
+.btn-menu {
+  background-color: var(--teal-extra-dark);
+  color: var(--white);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--btn-font-size-lg);
+  padding: var(--btn-padding-y-lg) var(--btn-padding-x-lg);
+  border: var(--border-width-md) solid var(--teal-bright);
+  border-radius: var(--btn-border-radius-lg);
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--btn-gap-lg);
+
+  .fa-bars {
+    color: var(--teal-bright);
+    font-size: 18px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--teal-dark);
+    color: var(--white);
+    border-color: var(--teal-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    background-color: var(--teal-dark);
+    color: var(--white);
+    transform: translateY(0);
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: var(--btn-padding-y-sm) var(--btn-padding-x-sm);
+    font-size: var(--font-size-medium);
+    gap: var(--btn-gap-sm);
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 0.375rem 1rem;
+    font-size: var(--font-size-small-medium);
+    gap: 0.25rem;
+  }
+}
+
+// ============================================================================
+// OFF-CANVAS MENU
+// ============================================================================
+
+// Ensure off-canvas is hidden by default and positioned correctly
+.offcanvas {
+  &.offcanvas-end {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 340px !important;
+    height: 100vh !important;
+    background-color: var(--teal-extra-dark);
+    z-index: 1045 !important;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    
+    &.show {
+      transform: translateX(0);
+    }
+  }
+  
+  // Off-canvas header
+  .offcanvas-header {
+    background-color: var(--teal-extra-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 60px;
+    
+    .btn-close-white {
+      opacity: 1;
+      filter: brightness(1.5);
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: 1.5rem;
+      padding: 0;
+      margin: 0;
+      flex-shrink: 0;
+      
+      &:hover,
+      &:focus {
+        opacity: 1;
+        filter: brightness(2);
+        transform: scale(1.15);
+        outline: none;
+      }
+      
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+// Backdrop styling
+.offcanvas-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1040 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  transition: opacity 0.3s ease-in-out;
+  
+  &.show {
+    opacity: 1;
+  }
+}
+
+// Push page content when off-canvas is open
+body:has(.offcanvas.show) {
+  overflow-x: hidden;
+  
+  // Shift all content left by the menu width
+  > *:not(.offcanvas):not(.offcanvas-backdrop) {
+    transform: translateX(-320px);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+// Ensure content transitions back when menu closes
+body {
+  > *:not(.offcanvas):not(.offcanvas-backdrop) {
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.offcanvas-body {
+  padding: 0;
+  background-color: var(--teal-extra-dark);
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .nav-link {
+    padding: 1.25rem 1.75rem;
+    color: var(--white);
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: none;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      text-decoration: none;
+    }
+    
+    &:active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // Dropdown parent items with chevron indicator
+  .dropdown {
+    .dropdown-toggle {
+      cursor: pointer;
+      color: var(--white);
+      font-weight: var(--font-weight-normal);
+
+      &::after {
+        content: '\f054'; // FontAwesome chevron-right
+        font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', sans-serif;
+        font-weight: 900;
+        font-size: 0.875rem;
+        margin-left: auto;
+        border: none;
+        transition: all 0.25s ease;
+        color: var(--white);
+        opacity: 0.7;
+      }
+
+      &[aria-expanded="true"]::after {
+        transform: rotate(90deg);
+        opacity: 1;
+      }
+      
+      &:hover,
+      &:focus {
+        color: var(--white);
+        
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // Hide dropdown menus by default
+  .dropdown-menu {
+    position: static;
+    display: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    width: 100%;
+    float: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  // Dropdown items styling
+  .dropdown-item {
+    padding: 1rem 1.75rem 1rem 3.25rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1rem;
+    font-weight: var(--font-weight-normal);
+    background: transparent;
+    border: none;
+    transition: all 0.2s ease;
+    display: block;
+    width: 100%;
+    text-align: left;
+    white-space: normal;
+    line-height: 1.5;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.06);
+      color: var(--white);
+      text-decoration: none;
+    }
+    
+    &:active {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  // Divider
+  .dropdown-divider {
+    margin: 0.5rem 1.75rem 0.5rem 3.25rem;
+    border-color: rgba(255, 255, 255, 0.12);
+    opacity: 1;
+  }
+}
+
+// Responsive logo sizing
+@include media-breakpoint-down(lg) {
+  .banner-menu .banner-logo {
+    font-size: 32px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .banner-menu .banner-logo {
+    font-size: 24px;
+  }
+}
+
+// Legacy navbar styles (keeping for backwards compatibility)
 .static-top.navbar-dark {
   box-shadow: none;
-}
-@include media-breakpoint-up(sm) {
 }
