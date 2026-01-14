@@ -1739,7 +1739,3 @@ h6,
 .custom-navbar-toggler {
   margin-left: auto;
 }
-
-a:not(.btn):hover {
-  text-decoration: underline !important;
-}

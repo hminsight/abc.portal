@@ -9,26 +9,40 @@
   --font-family-serif: 'Merriweather', serif;
   --font-family-icons: 'Font Awesome 5 Pro', sans-serif;
 
-  // Font Sizes
-  --font-size-base: 1em;
-  --font-size-small: 0.857em;
-  --font-size-small-medium: 0.93em;
-  --font-size-medium: 1.071em;
-  --font-size-large: 17px;
-  --font-size-xlarge: 19px;
-  --font-size-xxlarge: 20px;
-  --font-size-xxxlarge: 24px;
+  // Font Sizes (aligned with art.gov.au)
+  --font-size-base: 16px;
+  --font-size-xs: 0.75rem;        // 12px
+  --font-size-sm: 0.875rem;       // 14px
+  --font-size-md: 1rem;           // 16px (base body text)
+  --font-size-lg: 1.0625rem;      // 17px (menu items)
+  --font-size-xl: 1.125rem;       // 18px (buttons)
+  --font-size-2xl: 1.25rem;       // 20px
+  --font-size-3xl: 1.5rem;        // 24px
+  --font-size-4xl: 1.75rem;       // 28px
+  --font-size-5xl: 2rem;          // 32px
+
+  // Legacy font size variables (for backwards compatibility)
+  --font-size-small: 0.875rem;
+  --font-size-small-medium: 0.9375rem;
+  --font-size-medium: 1.0625rem;
+  --font-size-large: 1.0625rem;
+  --font-size-xlarge: 1.125rem;
+  --font-size-xxlarge: 1.25rem;
+  --font-size-xxxlarge: 1.5rem;
 
   // Font Weights
   --font-weight-light: 300;
   --font-weight-regular: 400;
+  --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
 
   // Line Heights
-  --line-height-base: 1.6;
-  --line-height-normal: normal;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-base: 1.5;
 
   // ============================================================================
   // COLOR PALETTE
@@ -41,7 +55,7 @@
   --black: #000000;
   
   // Teal Variations
-  --teal-extra-dark: #002A36;
+  --teal-extra-dark: #002A36; 
   --teal-dark: #003644;
   --teal: #157274;
   --teal-50: #15727480;
@@ -136,7 +150,7 @@
   --btn-padding-x-lg: 40px;
   --btn-gap-lg: 10px;
   --btn-height-lg: 53px;
-  --btn-font-size-lg: var(--font-size-xxlarge);
+  --btn-font-size-lg: var(--font-size-lg);
   --btn-border-radius-lg: var(--border-radius-lg);
 
   // Button Padding (Small)
@@ -144,7 +158,7 @@
   --btn-padding-x-sm: 33.208px;
   --btn-gap-sm: 8.302px;
   --btn-height-sm: 44px;
-  --btn-font-size-sm: var(--font-size-xlarge);
+  --btn-font-size-sm: var(--font-size-md);
   --btn-border-radius-sm: var(--border-radius-sm);
 
   // Button Colors

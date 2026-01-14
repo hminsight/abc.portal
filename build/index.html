@@ -40,13 +40,85 @@
 </head>
 
 <body>
+<!--
+  ============================================================================
+  UNIFIED HEADER COMPONENT
+  ============================================================================
+  This single header serves both authenticated and unauthenticated users.
+  
+  Design References:
+  - Top Menu: Figma node 2:475
+  - Banner Menu: Figma node 2:555
+  - Unauthenticated: Figma node 56:5242 (shows "Login" button)
+  - Authenticated: Figma node 681:30024 (shows "Logout" button)
+  
+  Conditional Logic:
+  - Uses Liquid template syntax: {% if user.isAnonymous %}
+  - Shows "Login" button for unauthenticated users
+  - Shows "Logout" button for authenticated users
+  - All other elements remain identical across both states
+  
+  Structure:
+  1. Top Menu Bar (separate include: _top-menu.html)
+  2. Banner Menu (Logo + Login/Logout + Menu button)
+  3. Off-canvas Menu (slides from right)
+  ============================================================================
+-->
+
+<!--
+  ============================================================================
+  TOP MENU BAR COMPONENT
+  ============================================================================
+  Utility navigation bar at the very top of the page.
+  
+  Design Reference: Figma node 2:475
+  
+  Features:
+  - Fixed height: 72px
+  - Background: teal-extra-dark (#002A36)
+  - Links: Dashboard, Language help, Contact us, Search, Agency website
+  - Font: Semibold 17px
+  - Icons: 18px height, 20px width
+  - External link separated with left border
+  ============================================================================
+-->
+
+<div class="top-menu" data-node-id="2:475">
+  <div class="container-fluid">
+    <div class="top-menu-items" data-node-id="2:481">
+      <a href="/dashboard" class="top-menu-button" data-node-id="2:434">
+        <i class="fa-solid fa-home-alt"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="/language-help" class="top-menu-button" data-node-id="2:436">
+        <i class="fa-solid fa-language"></i>
+        <span>Language help</span>
+      </a>
+      <a href="/contact" class="top-menu-button" data-node-id="2:437">
+        <i class="fa-solid fa-comments"></i>
+        <span>Contact us</span>
+      </a>
+      <a href="/search" class="top-menu-button" data-node-id="1369:20043">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search</span>
+      </a>
+      <a href="https://agency.example.com" class="top-menu-button top-menu-button--external" target="_blank" rel="noopener noreferrer" data-node-id="2:438">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <span>Agency website</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Main Banner Menu -->
 <div class="banner-menu" role="banner" data-node-id="2:555">
   <div class="skip-to-content"><a href="#mainContent">Skip to main content</a></div>
   <div class="container-fluid">
-    <div class="d-flex align-items-center justify-content-between px-4 px-lg-5 py-4">
+    <div class="d-flex align-items-center justify-content-between px-3 px-lg-5" style="padding-top: var(--banner-padding-y); padding-bottom: var(--banner-padding-y);">
       <!-- Logo -->
       <div class="banner-logo" data-node-id="2:551">
-        <a href="~/" class="text-decoration-none">
+        <a href="~/" class="text-decoration-none d-block">
           <div class="banner-logo__text">ABC</div>
           <div class="banner-logo__text-bold">Online Portal</div>
         </a>
@@ -54,16 +126,27 @@
       
       <!-- Action Buttons -->
       <div class="d-flex banner-actions align-items-center" data-node-id="2:530">
-        <a href="/apply" class="btn btn-teal rounded-pill" data-node-id="2:503">
-          Apply Now
-        </a>
-        <a href="/manage-case" class="btn btn-teal rounded-pill" data-node-id="2:509">
-          Manage your case
-        </a>
-        <button type="button" class="btn btn-menu rounded-pill" 
+        <!-- 
+          POWER PAGES: Uncomment the Liquid code below and remove the static buttons
+          LOCAL TESTING: Both buttons shown for testing - works fine locally
+        -->
+        
+        <!-- Liquid version (for Power Pages) - UNCOMMENT WHEN DEPLOYING:
+        {% if user.isAnonymous %}
+          <a href="/login" class="btn btn-primary rounded-pill">Login</a>
+        {% else %}
+          <a href="/logout" class="btn btn-primary rounded-pill">Logout</a>
+        {% endif %}
+        -->
+        
+        <!-- Static version (for local testing) - REMOVE WHEN DEPLOYING: -->
+        <a href="/login" class="btn btn-primary rounded-pill">Login</a>
+        <a href="/logout" class="btn btn-primary rounded-pill">Logout</a>
+        
+        <button type="button" class="btn btn-secondary rounded-pill" 
                 data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" 
                 aria-controls="navbarOffcanvas" data-node-id="2:512">
-          <span class="fa-solid fa-bars"></span>
+          <span class="fa-regular fa-bars"></span>
           <span>Menu</span>
         </button>
       </div>
@@ -72,7 +155,7 @@
 </div>
 
 <!-- Off-canvas Menu (outside banner-menu for proper positioning) -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel" data-bs-backdrop="true" data-bs-scroll="false">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel" data-bs-backdrop="true" data-bs-scroll="true">
   <div class="offcanvas-header">
     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
@@ -99,7 +182,7 @@
         </li>
         <li class="nav-item">
           <a href="/search/" class="nav-link" title="Search">
-            <span class="fa-solid fa-magnifying-glass me-2"></span>Search
+            <span class="fa-regular fa-magnifying-glass me-2"></span>Search
           </a>
         </li>
       </ul>

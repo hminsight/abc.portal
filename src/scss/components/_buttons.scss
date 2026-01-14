@@ -1,9 +1,9 @@
 // Button Component Styles
-// Based on Figma Design and existing website
-// Overrides Bootstrap 5 button styles
+// Based on art.gov.au specifications
+// Centralized button styles for consistency
 
 // ============================================================================
-// BUTTON BASE
+// BUTTON BASE - Override Bootstrap defaults
 // ============================================================================
 
 .btn {
@@ -11,31 +11,17 @@
     align-items: center;
     justify-content: center;
     font-family: var(--font-family-base);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold); // 700 (Bold in Figma)
+    font-size: 1.25rem; // 20px from Figma
     line-height: normal;
+    padding: 0.8125rem 2.5rem; // 13px 40px from Figma
+    border-radius: 30px; // Figma shows 30px border-radius
     cursor: pointer;
     transition: var(--transition-base);
     text-decoration: none;
-    border: none;
-    
-    // Large size (default)
-    &.btn-lg,
-    &:not(.btn-sm) {
-        height: var(--btn-height-large);
-        padding: var(--btn-padding-large);
-        gap: var(--spacing-sm-fixed);
-        border-radius: var(--btn-border-radius-large);
-        font-size: var(--font-size-large);
-    }
-    
-    // Small size
-    &.btn-sm {
-        height: var(--btn-height-small);
-        padding: var(--btn-padding-small);
-        gap: var(--spacing-xs);
-        border-radius: var(--btn-border-radius-small);
-        font-size: var(--font-size-medium);
-    }
+    text-align: center;
+    white-space: nowrap;
+    position: relative;
     
     // Icon styling
     i, svg, img {
@@ -43,244 +29,83 @@
         display: block;
         max-width: none;
     }
-    
-    &.btn-lg i,
-    &.btn-lg svg,
-    &.btn-lg img,
-    &:not(.btn-sm) i,
-    &:not(.btn-sm) svg,
-    &:not(.btn-sm) img {
-        width: 21px;
-        height: 18px;
-    }
-    
-    &.btn-sm i,
-    &.btn-sm svg,
-    &.btn-sm img {
-        width: 14.473px;
-        height: 12.406px;
-    }
 }
 
 // ============================================================================
-// PRIMARY BUTTON
+// BUTTON VARIANTS - Bootstrap standard classes
 // ============================================================================
 
+// Primary button - Solid teal (Apply Now, Manage case, Login, Logout)
 .btn-primary {
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-color);
-    border-color: var(--btn-primary-bg);
-    
-    i, svg {
-        color: var(--btn-primary-color);
-        fill: var(--btn-primary-color);
-    }
-    
-    // Hover State
-    &:hover {
-        background-color: var(--btn-primary-hover-bg);
-        color: var(--btn-primary-hover-color);
-        border-color: var(--btn-primary-hover-bg);
-        
-        i, svg {
-            color: var(--btn-primary-hover-color);
-            fill: var(--btn-primary-hover-color);
-        }
-    }
-    
-    // Disabled State
-    &:disabled,
-    &.disabled {
-        background-color: var(--btn-disabled-bg);
-        color: var(--btn-disabled-color);
-        border-color: var(--btn-disabled-bg);
-        cursor: not-allowed;
-        opacity: 1;
-        
-        i, svg {
-            color: var(--btn-disabled-color);
-            fill: var(--btn-disabled-color);
-        }
-    }
-    
-    // Active/Focus State
-    &:active,
-    &:focus,
-    &.active,
-    &:focus-visible {
-        background-color: var(--btn-primary-hover-bg);
-        color: var(--btn-primary-hover-color);
-        border-color: var(--btn-primary-hover-bg);
-        
-        i, svg {
-            color: var(--btn-primary-hover-color);
-            fill: var(--btn-primary-hover-color);
-        }
-    }
+  background-color: var(--teal);
+  color: var(--white);
+  border: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--teal-medium-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: var(--teal-medium-dark);
+    color: var(--white);
+    transform: translateY(0);
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 0.6875rem 2rem; // Slightly smaller
+    font-size: 1.125rem; // 18px
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 0.5625rem 1.5rem;
+    font-size: 1rem; // 16px
+  }
 }
 
-// ============================================================================
-// OUTLINE PRIMARY BUTTON
-// ============================================================================
-
-.btn-outline-primary {
-    background-color: var(--btn-outline-bg);
-    color: var(--btn-outline-color);
-    border: var(--border-width-heavy) solid var(--btn-outline-border);
-    
-    i, svg {
-        color: var(--btn-outline-color);
-        fill: var(--btn-outline-color);
-    }
-    
-    // Adjust padding for border
-    &.btn-lg,
-    &:not(.btn-sm) {
-        padding: 11px 38px;
-    }
-    
-    &.btn-sm {
-        padding: 8.792px 31.208px;
-    }
-    
-    // Hover State
-    &:hover {
-        background-color: var(--btn-outline-hover-bg);
-        color: var(--btn-outline-hover-color);
-        border-color: var(--btn-outline-hover-border);
-        
-        i, svg {
-            color: var(--btn-outline-hover-color);
-            fill: var(--btn-outline-hover-color);
-        }
-    }
-    
-    // Disabled State
-    &:disabled,
-    &.disabled {
-        background-color: var(--btn-outline-bg);
-        color: var(--btn-disabled-bg);
-        border-color: var(--btn-disabled-bg);
-        cursor: not-allowed;
-        opacity: 1;
-        
-        i, svg {
-            color: var(--btn-disabled-bg);
-            fill: var(--btn-disabled-bg);
-        }
-    }
-    
-    // Active/Focus State
-    &:active,
-    &:focus,
-    &.active,
-    &:focus-visible {
-        background-color: var(--btn-outline-hover-bg);
-        color: var(--btn-outline-hover-color);
-        border-color: var(--btn-outline-hover-border);
-        
-        i, svg {
-            color: var(--btn-outline-hover-color);
-            fill: var(--btn-outline-hover-color);
-        }
-    }
-}
-
-// ============================================================================
-// SECONDARY BUTTON
-// ============================================================================
-
+// Secondary button - Bordered dark teal (Menu button)
 .btn-secondary {
-    @extend .btn-outline-primary;
-}
+  background-color: var(--teal-extra-dark);
+  color: var(--white);
+  border: 2px solid var(--teal-bright); // 2px border from Figma
+  display: flex;
+  align-items: center;
+  gap: 0.8125rem; // 13px gap from Figma
 
-// ============================================================================
-// BUTTON VARIATIONS FROM EXISTING SITE
-// ============================================================================
+  .fa-bars {
+    color: var(--teal-bright);
+    font-size: 1.125rem; // 18px for icon
+  }
 
-// Info/Teal Variation
-.btn-info {
-    background-color: var(--teal);
+  &:hover,
+  &:focus {
+    background-color: var(--teal-dark);
     color: var(--white);
-    border-color: var(--teal);
-    
-    &:hover {
-        background-color: var(--teal-dark);
-        color: var(--white);
-        border-color: var(--teal-dark);
-    }
-}
+    border-color: var(--teal-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
 
-// Warning/Burgundy Variation
-.btn-warning {
-    background-color: var(--burgundy);
+  &:active {
+    background-color: var(--teal-dark);
     color: var(--white);
-    border-color: var(--burgundy);
-    
-    &:hover {
-        background-color: var(--burgundy-dark);
-        color: var(--white);
-        border-color: var(--burgundy-dark);
-    }
-}
+    transform: translateY(0);
+  }
 
-// Success Variation
-.btn-success {
-    background-color: var(--success);
-    color: var(--white);
-    border-color: var(--success);
-    
-    &:hover {
-        background-color: var(--success-dark);
-        color: var(--white);
-        border-color: var(--success-dark);
-    }
-}
+  @include media-breakpoint-down(lg) {
+    padding: 0.6875rem 2rem;
+    font-size: 1.125rem;
+    gap: 0.625rem;
+  }
 
-// Danger Variation
-.btn-danger {
-    background-color: var(--error);
-    color: var(--white);
-    border-color: var(--error);
-    
-    &:hover {
-        background-color: var(--error-dark);
-        color: var(--white);
-        border-color: var(--error-dark);
-    }
-}
-
-// ============================================================================
-// BUTTON LINK
-// ============================================================================
-
-.btn-link {
-    background-color: transparent;
-    color: var(--teal);
-    border: none;
-    text-decoration: underline;
-    
-    &:hover {
-        color: var(--teal-dark);
-        text-decoration: underline;
-    }
-    
-    &:disabled,
-    &.disabled {
-        color: var(--text-grey);
-        cursor: not-allowed;
-    }
-}
-
-// ============================================================================
-// BUTTON GROUPS
-// ============================================================================
-
-.btn-group {
-    display: inline-flex;
-    gap: var(--spacing-sm-fixed);
-    
-    .btn {
-        margin: 0;
-    }
+  @include media-breakpoint-down(md) {
+    padding: 0.5625rem 1.5rem;
+    font-size: 1rem;
+    gap: 0.5rem;
+  }
 }

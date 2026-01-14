@@ -13,7 +13,7 @@
 .fa-classic,
 .fa-regular,
 .fa-sharp,
-.fa-solid,
+.fa-regular,
 .fab,
 .far,
 .fas {
@@ -28,7 +28,7 @@
 
 .fa-classic,
 .fa-regular,
-.fa-solid,
+.fa-regular,
 .far,
 .fas {
   font-family: "Font Awesome 6 Free";
@@ -8830,11 +8830,11 @@
   font-style: normal;
   font-weight: 900;
   font-display: block;
-  src: url(../fonts/fa-solid-900.woff2) format("woff2"),
-    url(../fonts/fa-solid-900.ttf) format("truetype");
+  src: url(../fonts/fa-regular-900.woff2) format("woff2"),
+    url(../fonts/fa-regular-900.ttf) format("truetype");
 }
 
-.fa-solid,
+.fa-regular,
 .fas {
   font-weight: 900;
 }
@@ -8851,8 +8851,8 @@
   font-family: "Font Awesome 5 Free";
   font-display: block;
   font-weight: 900;
-  src: url(../fonts/fa-solid-900.woff2) format("woff2"),
-    url(../fonts/fa-solid-900.ttf) format("truetype");
+  src: url(../fonts/fa-regular-900.woff2) format("woff2"),
+    url(../fonts/fa-regular-900.ttf) format("truetype");
 }
 
 @font-face {
@@ -8866,8 +8866,8 @@
 @font-face {
   font-family: "FontAwesome";
   font-display: block;
-  src: url(../fonts/fa-solid-900.woff2) format("woff2"),
-    url(../fonts/fa-solid-900.ttf) format("truetype");
+  src: url(../fonts/fa-regular-900.woff2) format("woff2"),
+    url(../fonts/fa-regular-900.ttf) format("truetype");
 }
 
 @font-face {
