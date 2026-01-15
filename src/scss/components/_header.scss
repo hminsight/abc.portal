@@ -24,8 +24,8 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-left: 85px;
-    padding-right: 85px;
+    padding-left: 4rem;
+    padding-right: 4rem;
 
     @include media-breakpoint-down(lg) {
       padding-left: 40px;
@@ -63,6 +63,14 @@
     transition: color 0.3s ease-in-out;
     border-radius: 3px;
 
+    &:nth-last-of-type(2) {
+      margin-right: 0.875rem;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
     &:hover,
     &:focus {
       color: #d5dee0;
@@ -86,7 +94,7 @@
     &--external {
       border-left: 1px solid var(--teal);
       padding-left: 1.875rem;
-      margin-left: 1.875rem;
+      margin-left: 1rem;
       
     }
     i.fa-solid {
