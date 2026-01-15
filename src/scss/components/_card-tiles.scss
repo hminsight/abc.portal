@@ -1,0 +1,182 @@
+// Card Tile Component
+// Based on Figma design specifications with multiple states
+
+.card-tiles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: stretch;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.card-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  border-radius: 20px;
+  width: 380px;
+  min-height: 215px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+  border: 2px solid transparent;
+
+  @media (max-width: 1200px) {
+    width: calc(50% - 12px);
+    min-width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: auto;
+    padding: 24px;
+  }
+
+  // Standard variant (light teal background)
+  &.card-tile-standard {
+    background-color: var(--teal-10);
+
+    .card-tile-title {
+      color: var(--teal);
+    }
+
+    .card-tile-description {
+      color: var(--body);
+    }
+
+    .card-tile-button {
+      background-color: var(--white);
+      border-color: var(--teal);
+
+      i {
+        color: var(--red-dark);
+      }
+    }
+
+    &:hover {
+      background-color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      .card-tile-button {
+        background-color: var(--red-dark);
+        border-color: var(--red-dark);
+        
+        i {
+          color: var(--white);
+        }
+      }
+    }
+
+    // Selected state - dashed burgundy border
+    &.card-tile-selected {
+      background-color: var(--white);
+      border: 2px dashed var(--red-dark);
+
+      .card-tile-button {
+        background-color: var(--red-dark);
+        border-color: var(--red-dark);
+        
+        i {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  // Featured variant (teal background)
+  &.card-tile-feature {
+    background-color: var(--teal);
+
+    .card-tile-title {
+      color: var(--white);
+    }
+
+    .card-tile-description {
+      color: var(--white);
+    }
+
+    .card-tile-button {
+      background-color: var(--teal);
+      border-color: var(--white);
+
+      i {
+        color: var(--white);
+      }
+    }
+
+    &:hover {
+      background-color: var(--teal-medium-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+      .card-tile-button {
+        background-color: var(--red-dark);
+        border-color: var(--white);
+        
+        i {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  .card-tile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card-tile-title {
+    font-family: var(--font-family-base);
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    line-height: normal;
+    margin: 0;
+  }
+
+  .card-tile-description {
+    font-family: var(--font-family-base);
+    font-size: 20px;
+    font-weight: var(--font-weight-regular);
+    line-height: normal;
+    margin: 0 0 1rem 0;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  .card-tile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    min-height: 44px;
+    padding: 12px 40px;
+    border: 2px solid;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    i {
+      font-size: 24px;
+      font-weight: 900;
+      transition: color 0.2s ease;
+    }
+  }
+}
+
+// Link styling
+a.card-tile {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
