@@ -3,6 +3,9 @@ $(function () {
   
   // Initialize off-canvas menu
   initializeOffcanvasMenu();
+  
+  // Initialize back to top button
+  initializeBackToTop();
 });
 
 if (typeof portal_common === "undefined") {
@@ -69,4 +72,26 @@ function initializeOffcanvasMenu() {
   });
 
   console.log('Off-canvas menu initialized with', dropdownToggles.length, 'dropdown toggles');
+}
+
+/**
+ * Initialize back to top button functionality
+ */
+function initializeBackToTop() {
+  const backToTopBtn = document.querySelector('.back-to-top');
+  
+  if (!backToTopBtn) {
+    console.warn('Back to top button not found');
+    return;
+  }
+
+  console.log('Initializing back to top button');
+
+  backToTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 }

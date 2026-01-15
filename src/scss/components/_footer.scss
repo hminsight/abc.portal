@@ -1,0 +1,169 @@
+// Footer Component
+// Based on art.gov.au design and Figma specifications
+
+.footer {
+  background-color: var(--teal-light-1);
+  padding: 88px 132px;
+  width: 100%;
+  position: relative;
+
+  @media (max-width: 1200px) {
+    padding: 60px 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+
+  .footer-content {
+    display: flex;
+    gap: 136px;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    @media (max-width: 1200px) {
+      gap: 60px;
+    }
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  .footer-acknowledgment {
+    flex: 1;
+    max-width: 777px;
+
+    p {
+      font-family: var(--font-family-base);
+      font-size: 20px;
+      line-height: 1.5;
+      color: var(--body);
+      margin: 0;
+      font-weight: var(--font-weight-regular);
+    }
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+      
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .footer-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 312px;
+
+    @media (max-width: 992px) {
+      min-width: auto;
+    }
+  }
+
+  .footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      font-family: var(--font-family-base);
+      font-size: 20px;
+      line-height: 1;
+      color: var(--teal);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-block;
+
+      &:hover {
+        color: var(--teal-dark);
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 40px;
+
+    @media (max-width: 992px) {
+      margin-top: 30px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--teal);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--teal-dark);
+      }
+
+      i {
+        font-size: 24px;
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+    }
+  }
+
+  .back-to-top {
+    position: absolute;
+    bottom: 27px;
+    right: 29px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--white);
+    border: 2px solid var(--teal);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--teal);
+      
+      svg {
+        fill: var(--white);
+      }
+    }
+
+    svg {
+      width: 18px;
+      height: 10px;
+      fill: var(--red-dark);
+      transition: fill 0.2s ease;
+    }
+
+    @media (max-width: 768px) {
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+}

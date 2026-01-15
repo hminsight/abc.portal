@@ -3,6 +3,9 @@ $(function () {
   
   // Initialize off-canvas menu
   initializeOffcanvasMenu();
+  
+  // Initialize back to top button
+  initializeBackToTop();
 });
 
 if (typeof portal_common === "undefined") {
@@ -69,6 +72,28 @@ function initializeOffcanvasMenu() {
   });
 
   console.log('Off-canvas menu initialized with', dropdownToggles.length, 'dropdown toggles');
+}
+
+/**
+ * Initialize back to top button functionality
+ */
+function initializeBackToTop() {
+  const backToTopBtn = document.querySelector('.back-to-top');
+  
+  if (!backToTopBtn) {
+    console.warn('Back to top button not found');
+    return;
+  }
+
+  console.log('Initializing back to top button');
+
+  backToTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 }
 
 /* Portal Alert ///////////////////////////////////////////////////////////////////////
@@ -281,6 +306,37 @@ portal_common.getCookie = (name) => {
 portal_common.eraseCookie = (name) => {
   document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 };
+
+/**
+ * Footer Component
+ * Handles back-to-top functionality
+ */
+
+(function() {
+  'use strict';
+
+  // Back to top button functionality
+  const initBackToTop = () => {
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+  };
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBackToTop);
+  } else {
+    initBackToTop();
+  }
+})();
 
 /** Portal Modal ///////////////////////////////////////////////
  * How to use:
