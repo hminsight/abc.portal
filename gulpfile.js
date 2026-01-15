@@ -63,7 +63,8 @@ function html() {
     .on("error", (err) => {
       console.log("ERROR", err);
     })
-    .pipe(dest(`./${buildDir}`));
+    .pipe(dest(`./${buildDir}`))
+    .pipe(browserSync.stream());
 }
 
 function img() {
@@ -106,6 +107,7 @@ function js(cb) {
       .on("error", console.log)
       // .pipe(gulpif(env.p, uglify()))
       .pipe(dest(`${buildDir}js/`))
+      .pipe(browserSync.stream())
   );
 }
 
@@ -132,8 +134,9 @@ const watchFiles = (done) => {
       baseDir: buildDir,
     },
   });
-  watch(`${srcDir}html/**/*.html`, series(html, reload, a11yTest));
+  watch(`${srcDir}html/**/*.html`, series(html, a11yTest));
   watch(`${srcDir}scss/**/*.scss`, series(bootstrap, css));
+  watch(`${srcDir}js/**/*.js`, series(js, jsResources));
 
   done();
 };

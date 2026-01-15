@@ -1,0 +1,286 @@
+// Hero Banner Component
+// Based on Figma design specifications
+
+.hero-banner {
+  background-color: var(--teal-medium);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+
+  // Default variant - with button
+  &.hero-banner-default {
+    padding: 80px 85px;
+    align-items: flex-start;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      padding: 60px 40px;
+    }
+  }
+
+  // Centered variant
+  &.hero-banner-centered {
+    padding: 80px 85px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      padding: 60px 40px;
+    }
+
+    .hero-banner-title,
+    .hero-banner-subtitle {
+      text-align: center;
+    }
+  }
+
+  // Search variant
+  &.hero-banner-search {
+    padding: 80px 122px;
+    align-items: flex-start;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      padding: 60px 40px;
+    }
+  }
+
+  // Search centered variant
+  &.hero-banner-search-centered {
+    padding: 80px 122px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      padding: 60px 40px;
+    }
+
+    .hero-banner-title,
+    .hero-banner-subtitle {
+      text-align: center;
+    }
+  }
+
+  // Text only variant
+  &.hero-banner-text-only {
+    padding: 60px 122px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @media (max-width: 768px) {
+      padding: 40px 40px;
+    }
+  }
+
+  // Text only tight variant
+  &.hero-banner-text-tight {
+    padding: 40px 122px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    @media (max-width: 768px) {
+      padding: 30px 40px;
+    }
+
+    .hero-banner-title {
+      font-size: 48px;
+      line-height: 1;
+    }
+  }
+
+  // Application detail variant
+  &.hero-banner-app-detail {
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .hero-banner-content {
+      padding: 40px 0 40px 122px;
+
+      @media (max-width: 768px) {
+        padding: 40px;
+      }
+    }
+
+    .hero-banner-title {
+      font-size: 48px;
+      line-height: 1;
+    }
+
+    .hero-banner-app-id {
+      margin-right: 64px;
+
+      @media (max-width: 768px) {
+        margin-right: 40px;
+      }
+    }
+  }
+
+  .hero-banner-content {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    
+    // Remove default spacing from first child
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .hero-banner-title {
+    font-family: var(--font-family-base);
+    font-size: 56px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.5;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
+  }
+
+  .hero-banner-subtitle {
+    font-family: var(--font-family-base);
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.5;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  .hero-banner-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 40px;
+    gap: 10px;
+    background-color: var(--teal);
+    border: none;
+    border-radius: 30px;
+    color: var(--white);
+    font-family: var(--font-family-base);
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    line-height: normal;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--teal-dark);
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  // Search field group
+  .hero-banner-search-group {
+    display: flex;
+    width: 100%;
+    border: 4px solid var(--teal);
+    border-radius: 10px;
+    overflow: hidden;
+
+    .hero-banner-search-input {
+      flex: 1;
+      background-color: var(--white);
+      border: none;
+      padding: 8px 20px;
+      height: 60px;
+      font-family: var(--font-family-base);
+      font-size: 20px;
+      font-weight: var(--font-weight-semibold);
+      color: #585c5f;
+      border-radius: 10px 0 0 10px;
+
+      &::placeholder {
+        color: #585c5f;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .hero-banner-search-button {
+      width: 80px;
+      height: 60px;
+      background-color: var(--white);
+      border: none;
+      border-left: 1px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      padding: 8px;
+
+      &:hover {
+        background-color: var(--teal-light-3);
+      }
+
+      i {
+        color: var(--teal);
+        font-size: 20px;
+      }
+    }
+  }
+
+  // Application ID badge
+  .hero-banner-app-id {
+    background-color: var(--white);
+    border-left: 4px solid var(--teal);
+    border-radius: 64px;
+    padding: 12px 36px;
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px 24px;
+    }
+
+    .hero-banner-app-id-label {
+      font-family: var(--font-family-base);
+      font-size: 32px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--teal-dark);
+      margin: 0;
+      line-height: normal;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
+    }
+
+    .hero-banner-app-id-value {
+      font-family: var(--font-family-base);
+      font-size: 32px;
+      font-weight: var(--font-weight-regular);
+      color: var(--teal-dark);
+      margin: 0;
+      line-height: 1.5;
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
+    }
+  }
+}

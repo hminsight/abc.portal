@@ -11,6 +11,24 @@
   @media (max-width: 768px) {
     gap: 16px;
   }
+
+  // 2-column layout modifier
+  &.card-tiles-2col {
+    justify-content: flex-start;
+    gap: 48px;
+
+    .card-tile {
+      flex: 1 1 calc(50% - 24px);
+      max-width: calc(50% - 24px);
+      width: auto;
+
+      @media (max-width: 768px) {
+        flex: 1 1 100%;
+        max-width: 100%;
+        gap: 16px;
+      }
+    }
+  }
 }
 
 .card-tile {

@@ -32,20 +32,20 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: var(--spacing-lg);
     
     @media (max-width: 768px) {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     
     @media (max-width: 576px) {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 }
 
 h2, .h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: var(--spacing-md-large);
     
     a {
@@ -59,21 +59,21 @@ h2, .h2 {
     }
     
     @media (max-width: 768px) {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
     
     @media (max-width: 576px) {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
 }
 
 h3, .h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin-bottom: var(--spacing-md);
     color: var(--teal);
     
     @media (max-width: 768px) {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
     
     @media (max-width: 576px) {
@@ -102,11 +102,12 @@ h6, .h6 {
 // ============================================================================
 
 .home-hero-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: var(--font-weight-bold);
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
     color: var(--white);
+    padding: 0;
     
     @media (max-width: 768px) {
         font-size: 2rem;
@@ -118,7 +119,7 @@ h6, .h6 {
 }
 
 .home-hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-base);
     margin-bottom: var(--spacing-md-large);
