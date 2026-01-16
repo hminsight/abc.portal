@@ -204,33 +204,51 @@
   .offcanvas-header {
     background-color: var(--teal-dark);
     // border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 1.25rem 1.75rem 1.25rem 1.5rem;
-    margin-right: -1rem;
+    padding: 0 1.5rem 1rem 1.5rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-end;
-    min-height: 128px;
+    min-height: auto;
     
-    .btn-close-white {
+    .btn-close {
       opacity: 1;
-      filter: brightness(1.5);
-      width: 1.5rem;
-      height: 1.5rem;
-      background-size: 1.5rem;
-      padding: 0;
+      width: auto;
+      height: auto;
+      padding: 1rem 1rem;
       margin: 0;
+      background: none;
+      border: none;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      .fa-xmark {
+        color: var(--white);
+        font-size: 1.25rem;
+        opacity: 0.9;
+        transition: all 0.2s ease;
+      }
       
       &:hover,
       &:focus {
         opacity: 1;
-        filter: brightness(2);
-        transform: scale(1.15);
         outline: none;
+        background-color: var(--teal-bright);
+        border-radius: 0;
+        
+        .fa-xmark {
+          opacity: 1;
+          transform: scale(1.1);
+        }
       }
       
       &:active {
-        transform: scale(1);
+        .fa-xmark {
+          transform: scale(0.95);
+        }
       }
     }
   }
@@ -244,11 +262,55 @@
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
   transition: opacity 0.3s ease-in-out;
   
   &.show {
     opacity: 1;
+  }
+}
+
+// Second level offcanvas submenu
+.offcanvas-submenu {
+  z-index: 1046 !important;
+  
+  .offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    min-height: auto;
+  }
+  
+  .offcanvas-body {
+    padding-top: 0;
+  }
+  
+  .btn-back {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.0625rem;
+    font-weight: var(--font-weight-regular);
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    .fa-chevron-left {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+    
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+      outline: none;
+    }
   }
 }
 
@@ -275,7 +337,7 @@ body {
   background-color: var(--teal-dark);
 
   .nav {
-    width: 100%;
+    width: 95%;
   }
 
   .nav-item {
@@ -285,12 +347,13 @@ body {
   }
 
   .nav-link {
-    padding: 0.82rem 1.25rem;
+    padding: 0.875rem 1.5rem;
     color: var(--white);
-    font-size: var(--font-size-medium);
+    font-size: 1.0625rem;
     font-family: var(--font-family-base);
     font-weight: var(--font-weight-regular);
-    line-height: var(--line-height-normal);
+    line-height: 1.4;
+    letter-spacing: 0.2px;
     transition: all 0.2s ease;
     display: flex;
     justify-content: space-between;
@@ -298,6 +361,8 @@ body {
     width: 100%;
     border: none;
     text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     &:hover,
     &:focus {
@@ -312,90 +377,39 @@ body {
     }
   }
 
-  // Dropdown parent items with chevron indicator
-  .dropdown {
-    .dropdown-toggle {
-      cursor: pointer;
+  // Submenu trigger items with chevron
+  .submenu-trigger {
+    position: relative;
+    cursor: pointer;
+
+    &::after {
+      content: '\f054'; // FontAwesome chevron-right
+      font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      margin-left: auto;
       color: var(--white);
-      font-weight: var(--font-weight-normal);
-
-      &::after {
-        content: '\f054'; // FontAwesome chevron-right
-        font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', sans-serif;
-        font-weight: 900;
-        font-size: 0.875rem;
-        margin-left: auto;
-        border: none;
-        transition: all 0.25s ease;
-        color: var(--white);
-        opacity: 0.7;
-      }
-
-      &[aria-expanded="true"]::after {
-        transform: rotate(90deg);
-        opacity: 1;
-      }
-      
-      &:hover,
-      &:focus {
-        color: var(--white);
-        
-        &::after {
-          opacity: 1;
-        }
-      }
+      transition: all 0.2s ease;
+      padding: 1.25rem;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
     }
-  }
-
-  // Hide dropdown menus by default
-  .dropdown-menu {
-    position: static;
-    display: none;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    width: 100%;
-    float: none;
-
-    &.show {
-      display: block;
-    }
-  }
-
-  // Dropdown items styling
-  .dropdown-item {
-    padding: 0.875rem 1.25rem 0.875rem 2.5rem;
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 1rem;
-    font-weight: var(--font-weight-normal);
-    background: transparent;
-    border: none;
-    transition: all 0.2s ease;
-    display: block;
-    width: 100%;
-    text-align: left;
-    white-space: normal;
-    line-height: 1.4;
 
     &:hover,
     &:focus {
       background-color: rgba(255, 255, 255, 0.06);
-      color: var(--white);
-      text-decoration: none;
+      font-weight: var(--font-weight-bold);
+      
+      &::after {
+        background-color: var(--teal-bright);
+        color: var(--white);
+        opacity: 1;
+      }
     }
-    
-    &:active {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  // Divider
-  .dropdown-divider {
-    margin: 0.5rem 1.25rem 0.5rem 2.5rem;
-    border-color: rgba(255, 255, 255, 0.12);
-    opacity: 1;
   }
 }
 

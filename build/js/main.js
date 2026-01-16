@@ -27,51 +27,54 @@ function initializeOffcanvasMenu() {
 
   console.log('Initializing off-canvas menu');
 
-  // Handle dropdown toggles within the off-canvas menu
-  const dropdownToggles = offcanvasElement.querySelectorAll('.nav-link.dropdown-toggle');
+  // Handle submenu triggers
+  const submenuTriggers = document.querySelectorAll('.submenu-trigger');
   
-  dropdownToggles.forEach(toggle => {
-    // Set initial state
-    toggle.setAttribute('aria-expanded', 'false');
-    
-    toggle.addEventListener('click', function(e) {
+  submenuTriggers.forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
       e.preventDefault();
-      e.stopPropagation();
+      const submenuId = this.getAttribute('data-submenu');
+      const submenuElement = document.getElementById(submenuId);
       
-      const parentLi = this.closest('.dropdown');
-      const dropdownMenu = parentLi.querySelector('.dropdown-menu');
-      
-      if (!dropdownMenu) return;
-      
-      const isCurrentlyOpen = dropdownMenu.classList.contains('show');
-      
-      // Close all dropdowns first
-      offcanvasElement.querySelectorAll('.dropdown-menu').forEach(menu => {
-        menu.classList.remove('show');
-      });
-      offcanvasElement.querySelectorAll('.dropdown-toggle').forEach(t => {
-        t.setAttribute('aria-expanded', 'false');
-      });
-      
-      // Toggle current dropdown
-      if (!isCurrentlyOpen) {
-        dropdownMenu.classList.add('show');
-        this.setAttribute('aria-expanded', 'true');
+      if (submenuElement) {
+        const submenu = new bootstrap.Offcanvas(submenuElement);
+        submenu.show();
       }
     });
   });
 
-  // Reset all dropdowns when off-canvas is hidden
-  offcanvasElement.addEventListener('hidden.bs.offcanvas', function() {
-    offcanvasElement.querySelectorAll('.dropdown-menu').forEach(menu => {
-      menu.classList.remove('show');
-    });
-    offcanvasElement.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-      toggle.setAttribute('aria-expanded', 'false');
+  // Handle back buttons in submenus
+  const backButtons = document.querySelectorAll('.btn-back');
+  
+  backButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      const currentOffcanvas = this.closest('.offcanvas');
+      if (currentOffcanvas) {
+        const offcanvasInstance = bootstrap.Offcanvas.getInstance(currentOffcanvas);
+        if (offcanvasInstance) {
+          offcanvasInstance.hide();
+        }
+      }
     });
   });
 
-  console.log('Off-canvas menu initialized with', dropdownToggles.length, 'dropdown toggles');
+  // Handle close all buttons
+  const closeAllButtons = document.querySelectorAll('[data-close-all="true"]');
+  
+  closeAllButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      // Close all offcanvas menus
+      const allOffcanvas = document.querySelectorAll('.offcanvas.show');
+      allOffcanvas.forEach(offcanvas => {
+        const instance = bootstrap.Offcanvas.getInstance(offcanvas);
+        if (instance) {
+          instance.hide();
+        }
+      });
+    });
+  });
+
+  console.log('Off-canvas menu initialized with submenu support');
 }
 
 /**

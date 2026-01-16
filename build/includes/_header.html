@@ -115,7 +115,9 @@
 <!-- Off-canvas Menu (outside banner-menu for proper positioning) -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasLabel" data-bs-backdrop="true" data-bs-scroll="true">
   <div class="offcanvas-header">
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+      <span class="fa-solid fa-xmark" aria-hidden="true"></span>
+    </button>
   </div>
   <div class="offcanvas-body">
     <nav aria-label="Main Navigation">
@@ -126,17 +128,47 @@
         <li class="nav-item">
           <a href="/dashboard.html" class="nav-link" title="Dashboard">Dashboard</a>
         </li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" aria-expanded="false" title="Examples">Examples</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/Examples/">Examples</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/Examples/Card-Showcase/">Card Showcase</a></li>
-            <li><a class="dropdown-item" href="/Examples/Accordion-Showcase/">Accordion Showcase</a></li>
-            <li><a class="dropdown-item" href="/Examples/Interactive-Tabs/">Interactive Tabs</a></li>
-            <li><a class="dropdown-item" href="/Examples/Alerts/">Alerts</a></li>
-            <li><a class="dropdown-item" href="/Examples/list-showcase/">Link Showcase</a></li>
-          </ul>
+        <li class="nav-item">
+          <a href="#" class="nav-link submenu-trigger" data-submenu="examplesSubmenu" title="Examples">
+            <span>Examples</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- Second Off-canvas Menu for Examples Submenu -->
+<div class="offcanvas offcanvas-end offcanvas-submenu" tabindex="-1" id="examplesSubmenu" aria-labelledby="examplesSubmenuLabel" data-bs-backdrop="false">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-back" data-bs-dismiss="offcanvas" aria-label="Back">
+      <span class="fa-solid fa-chevron-left" aria-hidden="true"></span>
+      <span>Examples</span>
+    </button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-close-all="true" aria-label="Close">
+      <span class="fa-solid fa-xmark" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="offcanvas-body">
+    <nav aria-label="Examples Navigation">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="/Examples/">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Examples/Card-Showcase/">Card Showcase</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Examples/Accordion-Showcase/">Accordion Showcase</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Examples/Interactive-Tabs/">Interactive Tabs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Examples/Alerts/">Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Examples/list-showcase/">Link Showcase</a>
         </li>
       </ul>
     </nav>
