@@ -2755,4 +2755,62 @@ label {
     margin-top: 16px;
   }
 
+  /* Subgrids */
+  .entity-grid.subgrid {
+    padding: 4px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--teal-10);
+  }
+  .view-toolbar.grid-actions {
+    background-color: var(--teal-light-1);
+    padding: 16px;
+    display: flex;
+    justify-content: end;
+  }
+  .toolbar-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  .toolbar-actions .input-group.float-start.view-search.entitylist-search {
+    display: flex!important;
+    flex-direction: row;
+  }
+  .toolbar-actions a.action.create-action {
+    margin-left: 0;
+  }
+  .toolbar-actions a.action.create-action::after {
+    content: "\2b";
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", sans-serif;
+    font-weight: 900;
+    font-size: 1.3125em;
+    margin-left: auto;
+    color: var(--white);
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+  .toolbar-actions .input-group.float-start.view-search.entitylist-search button.btn.btn-default {
+    border-radius: 0 10px 10px 0!important;
+    height: 100%;
+    background: var(--white);
+    border-left: 0;
+    padding: 0.5rem 1rem;
+    border-color: var(--form-field-border);
+  }
+  .toolbar-actions .input-group.float-start.view-search.entitylist-search button.btn.btn-default .fa.fa-search {
+    font-size: 1rem;
+  }
+  .toolbar-actions .input-group.float-start.view-search.entitylist-search .query.form-control {
+    width: auto!important;
+    border-color: var(--form-field-border);
+    border-radius: 10px 0 0 10px;
+  }
+
 /*# sourceMappingURL=main.css.map */
